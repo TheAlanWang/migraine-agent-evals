@@ -1,0 +1,4 @@
+# Dependencies for `python artifact/reproduce.py suite` and `python artifact/reproduce.py test`.
+-r reproduce.txt
+numpy>=1.26
+sentence-transformers==5.1.0

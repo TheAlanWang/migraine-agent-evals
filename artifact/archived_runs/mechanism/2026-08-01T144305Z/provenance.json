@@ -1,0 +1,26 @@
+{
+  "model": "gemini-2.5-flash",
+  "evals_commit": "54b75a9a1b6919c5e6d6edd040c185a3c575d42c",
+  "prompt_sha256": "b68637511e08db3e9df37ab38d5d2226fcaefa246f1f7ff85ef712b0095b48b6",
+  "tool_schema_sha256": "e14dd94e7286a493bee7bfbb48944132b41ff69dc885c14e4eb4b0ea56197197",
+  "case_set_sha256": "984006dcef4e3f990fce656526750c77808b7b3479dc8d0ea86a85614ce3d761",
+  "n_cases": 40,
+  "versions": {
+    "langchain-core": "0.3.75",
+    "langchain-google-genai": "2.1.12",
+    "langgraph": "0.2.76",
+    "google-genai": "2.7.0",
+    "google-ai-generativelanguage": "0.12.0"
+  },
+  "configs": [
+    "persona",
+    "dummy_schemas",
+    "real_schemas",
+    "real_callable",
+    "agent",
+    "agent_no_help",
+    "agent_help_neutral"
+  ],
+  "n_runs": 3,
+  "started": "2026-08-01T144305Z"
+}

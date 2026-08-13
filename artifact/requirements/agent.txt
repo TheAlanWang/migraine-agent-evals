@@ -1,0 +1,16 @@
+# Extra tier: the tool-bearing ladder rungs (persona_tools / full).
+#
+# These drive the real production agent, so the venv also needs the backend's
+# own dependency tree (LangGraph, Supabase, Vertex, the MiniLM gate, ...). This
+# is a heavy install (torch, transformers) and only needed when re-running the
+# tool rungs — the bare rungs and every analysis script work off
+# artifact/requirements/base.txt alone.
+#
+#   .venv/bin/pip install -r artifact/requirements/agent.txt
+#
+# Assumes the backend is available at the relative path below. If it lives
+# elsewhere, install its requirements separately and set KOKUN_BACKEND when
+# running artifact/src/experiments/cross_vendor_ladder.py.
+
+-r base.txt
+-r ../../../kokun-backend/requirements.txt

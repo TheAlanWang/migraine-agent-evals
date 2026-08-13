@@ -1,0 +1,4 @@
+# Tooling only. Not needed to run the suite, the harness, or any experiment; used to
+# build the reviewer-facing spreadsheet, which is a convenience for humans filling in
+# a form. Kept out of requirements.txt so a reproduction does not have to install it.
+openpyxl>=3.1

@@ -1,0 +1,31 @@
+# Research / paper experiments — dependencies.
+#
+# Deliberately separate from the Kokun backend's venv: the backend ships a
+# Gemini-only agent and should never carry the extra vendor SDKs this repo
+# needs for the cross-vendor replication.
+#
+#   python3 -m venv .venv
+#   .venv/bin/pip install -r artifact/requirements/base.txt
+#
+# Covers the application-specific runners, reusable harness, Level-3 judge,
+# and archived-data analyses under src/.
+#
+# The tool-bearing rungs (persona_tools / full) import the production agent and
+# therefore need the backend's full dependency tree as well — see
+# artifact/requirements/agent.txt.
+
+# core evaluation dependencies
+-r evaluation.txt
+python-dotenv==1.1.1
+
+# LLM vendors (one client per model family in cross_vendor_ladder.make_llm)
+langchain-core==0.3.75
+langchain-google-genai==2.1.12
+langchain-anthropic==0.3.19
+langchain-openai==0.3.32
+
+# Level-3 judge
+ragas==0.2.15
+
+# Llama Guard 3 baseline (needs a local ollama server + pulled model)
+ollama==0.5.3   # matches the backend pin so the two tiers compose

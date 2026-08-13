@@ -1,0 +1,71 @@
+# Runs the artifact's own checks in public.
+#
+# Not continuous integration in the usual sense: this repository is a frozen
+# snapshot and will receive few commits. The point is evidential. A reader deciding
+# whether to trust the paper's numbers can see that they verify against this tree
+# without downloading anything and without taking our word for it, and the history
+# scan is a public, continuous statement that no commit here carries corpus text,
+# which is the claim the whole release process rests on.
+#
+# Every job runs with no credentials, deliberately. The three scripts below read
+# only files in this repository. Nothing here needs Supabase, a model key, or the
+# production backend, and if that ever stops being true the job should fail rather
+# than acquire a secret.
+name: verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Only what the checks import. Installing the full experiment environment would
+      # pull the agent stack, which this repository deliberately does not need: the
+      # scripts read archived files. Versions are pinned to the same lines as
+      # be unnecessary for archived-data verification.
+      #
+      # scipy is not optional. mannwhitney() reports SciPy's exact p-value, because
+      # that is the number a reader reproduces from the archived totals, and carries
+      # its own permutation test as a cross-check. The first run of this workflow
+      # failed here: a local virtualenv had scipy, so nothing local revealed the
+      # dependency.
+      - name: Install what the checks import
+        run: python -m pip install --quiet "pyyaml==6.0.2" "scipy>=1.11"
+
+      - name: Paper numbers recompute from the archives
+        run: python artifact/reproduce.py
+
+      - name: Balanced replication recomputes from 32 Gemini runs
+        run: python artifact/reproduce.py verify-equalized
+
+      - name: Heldout replication recomputes from 26 runs
+        run: python artifact/reproduce.py verify-heldout
+
+      - name: Unit tests
+        run: |
+          python artifact/reproduce.py test
+          python artifact/src/tools/test_archive_replication_batch.py
+          python artifact/src/tools/test_replication_results.py
+          python artifact/src/tools/test_replication_release_gates.py
+
+      - name: Replication archives contain no retrieved text previews
+        run: |
+          python artifact/src/tools/scan_for_sensitive.py --for-release archived_runs/equalized_ladder_2026-08-13
+          python artifact/src/tools/scan_for_sensitive.py --for-release archived_runs/heldout_tool_calling_2026-08-12
+
+      - name: Documents agree with the code, and no commit carries corpus text
+        run: python artifact/src/tools/check_release_ready.py --history
+
+      - name: Paired analysis reproduces both metrics
+        run: python artifact/reproduce.py paired

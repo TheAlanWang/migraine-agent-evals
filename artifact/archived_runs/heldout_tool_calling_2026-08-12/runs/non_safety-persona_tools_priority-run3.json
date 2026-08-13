@@ -1,0 +1,967 @@
+{
+  "kind": "non_safety",
+  "config": "persona_tools_priority",
+  "run_index": 3,
+  "completed": "2026-08-13T01:06:55.251257+00:00",
+  "model": "gemini-2.5-flash",
+  "case_file_sha256": "77a68303d465849455d3ce4a2d87271f4fb8071613f9a9c9ad308b743a76195e",
+  "preregistration_sha256": "c08bcfb59ed225e568a42663a70dd536d6c7b2133e0135969ec02ee15be7659c",
+  "prompt_sha256": "56450d12fef586155d61f04c343da145a5d45b543bd54c870488572c3d92a8ef",
+  "priority_instruction_sha256": "d8d9b65651e2129fc212ca5c9c718fe1ef06fac2f5851a624cfa9958b7ba5137",
+  "priority_occurrences": 1,
+  "records": [
+    {
+      "case_id": "triggers-basic",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What are common triggers for migraine?",
+      "answer": "Migraine attacks can be set off by a variety of internal and external factors. Here are some common triggers:\n\n*   **Hormonal Changes:** Fluctuations related to the menstrual cycle, pregnancy, menopause, or hormonal contraceptives.\n*   **Psychological Factors:** Stress and anxiety are frequent triggers.\n*   **Dietary Factors:**\n    *   Alcohol, especially red wine\n    *   Excessive caffeine intake or caffeine withdrawal\n    *   Aged cheese\n    *   MSG\n    *   Aspartame\n    *   Processed foods\n    *   Skipping meals\n*   **Sensory Factors:** Bright lights, loud noises, and strong odors (like perfume or paint thinner).\n*   **Behavioral Factors:**\n    *   Sleep deprivation or excessive sleep\n    *   Intense physical exertion\n*   **Environmental Factors:** Weather changes, shifts in barometric pressure, and heat.\n*   **Medications:** Certain medications, such as vasodilators and oral contraceptives, can also be triggers.\n\nIt's important to remember that trigger exposure doesn't always lead to a migraine, but many individuals observe consistent patterns. Keeping a migraine diary can help identify your personal triggers. If you're struggling with migraines, it's always a good idea to consult a healthcare professional for personalized advice and management strategies.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "aura-vs-no-aura",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What is the difference between a migraine with aura and without aura?",
+      "answer": "Migraine with aura and migraine without aura are distinct types of migraine, primarily differentiated by the presence of an \"aura\" before or during the headache phase.\n\nHere's a breakdown of the key differences:\n\n**Migraine Without Aura:**\n*   **Key Features:** Characterized by unilateral throbbing pain, often accompanied by nausea, photophobia (sensitivity to light), or phonophobia (sensitivity to sound).\n*   **Duration:** Headache attacks typically last between 4 and 72 hours if untreated or unsuccessfully treated.\n*   **Diagnosis (ICHD-3 criteria):** Requires at least 5 attacks with the described headache features, and at least one of nausea/vomiting or photophobia/phonophobia during the headache.\n\n**Migraine With Aura:**\n*   **Key Features:** Includes visual or sensory aura symptoms that occur before or during the headache. These aura symptoms are fully reversible and can include visual disturbances (like flashing lights, zigzags, or blind spots), sensory changes (numbness or tingling), speech/language difficulties, motor weakness, brainstem symptoms, or retinal symptoms.\n*   **Duration:** Aura symptoms typically last from 5 to 60 minutes, though motor symptoms can last up to 72 hours. The headache usually follows the aura within 60 minutes or occurs concurrently.\n*   **Diagnosis (ICHD-3 criteria):** Requires at least 2 attacks with at least one fully reversible aura symptom. Additionally, at least three of the following criteria must be met: the aura spreads gradually over 5 minutes or more, two or more aura symptoms occur in succession, each aura symptom lasts 5-60 minutes (motor up to 72 hours), at least one aura symptom is unilateral, at least one aura symptom is \"positive\" (e.g., visual scintillations rather than loss of vision), and the aura is accompanied or followed by headache within 60 minutes.\n*   **Treatment Note:** Individuals with migraine with aura, especially if they have additional stroke risk factors, may be advised to avoid estrogen-containing contraceptives.\n\nIn essence, the defining characteristic of migraine with aura is the neurological phenomenon of the aura itself, which precedes or accompanies the headache phase, while migraine without aura presents solely with the headache and associated symptoms.\n\nIt's important to consult with a healthcare professional, such as a primary care doctor or a neurologist, for an accurate diagnosis and appropriate management plan for migraines.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1529 - Hansen et al. - 2016 - Variability of clinical features in attacks of migraine with aura.pdf",
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "acute-medications",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "Which medications are used for acute migraine treatment?",
+      "answer": "For acute migraine treatment, several medications are used. Triptans are a common class of drugs, including frovatriptan, eletriptan, rizatriptan, and almotriptan. Other medications mentioned for acute treatment include ubrogepant and lasmiditan. Additionally, non-prescription combinations of acetaminophen, aspirin, and caffeine, as well as diclofenac-K and naproxen, have been used.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/891 - Lasmiditan efficacy in migraine attacks with mild vs. moderate or severe pain.pdf",
+        "research/923 - MAP0004, orally inhaled dihydroergotamine for acute treatment of migraine- efficacy of early and late treatments.pdf",
+        "research/1410 - Krymchantowski et al. - 2008 - Lysine clonixinate versus dipyrone (metamizole) for the acute treatment of severe migraine attacks.pdf"
+      ]
+    },
+    {
+      "case_id": "prevention",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "How can migraines be prevented?",
+      "answer": "Migraine is a common and often disabling headache disorder. Preventing migraine attacks is a significant public health concern, as they can substantially impair quality of life and productivity.\n\nWhile the exact mechanisms of migraine are complex, involving neuronal, inflammatory, and vascular factors, there are various approaches to prevention. These can be broadly categorized into non-pharmacological and pharmacological treatments.\n\nNon-pharmacological strategies are generally considered safer and better tolerated than medications. These can include:\n\n*   **Lifestyle modifications:** This might involve identifying and avoiding triggers, managing stress, maintaining a regular sleep schedule, and eating a balanced diet.\n*   **Behavioral therapy:** Techniques like biofeedback, cognitive behavioral therapy (CBT), and relaxation training can be helpful for some individuals.\n\nPharmacological options for migraine prevention include a range of medications such as:\n\n*   Beta-blockers\n*   Calcium channel blockers\n*   Antiepileptic drugs\n*   Antibodies against calcitonin gene-related peptide (CGRP) or its receptor\n\nAdditionally, neuromodulation techniques are also used in some cases.\n\nIt's important to note that many patients may not be fully satisfied with acute migraine medications, highlighting the importance of preventative strategies.\n\nGiven the complexity of migraine and the various prevention options, it's essential to consult with a healthcare professional to determine the most appropriate and effective prevention plan for your individual needs. They can help you identify triggers, discuss potential treatment options, and monitor your progress.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/836 - Efficacy and feasibility of a 12-week Tai Chi training for the prophylaxis of episodic migraine in Hong Kong Chinese women- A randomized controlled trial.pdf",
+        "research/1263 - Long-term Low-Dose Sucrose May Prevent Migraine- Two Double-Blinded Randomized Controlled Pilot Trials.pdf",
+        "research/222 - Tracking tDCS induced grey matter changes in episodic migraine- a randomized controlled trial.pdf"
+      ]
+    },
+    {
+      "case_id": "lifestyle",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What lifestyle changes help reduce migraine frequency?",
+      "answer": "Lifestyle changes can significantly help in reducing migraine frequency. Here are some key areas to focus on:\n\n*   **Sleep Hygiene:** Maintaining a consistent sleep schedule and ensuring adequate, restful sleep can be very beneficial.\n*   **Hydration:** Staying well-hydrated throughout the day is important.\n*   **Balanced Meals:** Eating regular, balanced meals can help prevent blood sugar fluctuations that might trigger migraines.\n*   **Stress Management:** Implementing stress-reduction strategies like cognitive behavioral therapy (CBT) or mindfulness can help manage stress, which is a common migraine trigger.\n*   **Trigger Avoidance:** Identifying and avoiding personal migraine triggers is crucial. This can involve tracking potential triggers in a diary, such as certain foods, sensory stimuli (bright lights, loud noises, strong smells), or weather changes.\n*   **Exercise:** Regular physical activity can be helpful, but it's important to approach it with gradual warm-ups and avoid abrupt, heavy exertion, as sudden intracranial pressure changes can sometimes trigger migraines.\n*   **Supplements:** Some supplements like magnesium, riboflavin, and coenzyme Q10 may offer additional benefits, but it's always best to discuss these with a healthcare professional before starting any new supplements.\n\nWorking with a neurologist or headache specialist can help you identify your specific triggers and develop a personalized management plan that may include these lifestyle adjustments, along with other therapies if needed.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/42 - Behavioral treatment for migraine prophylaxis in adults- Moderator analysis of a randomized controlled trial.pdf"
+      ]
+    },
+    {
+      "case_id": "hereditary",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "Are migraines hereditary?",
+      "answer": "Yes, migraines are considered to have a strong hereditary component. A family history of migraines is a major risk factor, and there is a genetic predisposition that interacts with environmental triggers like stress.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/252 - Part I- Pituitary adenylate cyclase-activating polypeptide-38 induced migraine-like attacks in patients with and without familial aggregation of migraine.pdf"
+      ]
+    },
+    {
+      "case_id": "hormones-women",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What is the connection between hormones and migraine in women?",
+      "answer": "Hormonal fluctuations, particularly involving estrogen, play a significant role in triggering migraines in women. The primary hormonal trigger for migraine is often **estrogen withdrawal** rather than high estrogen levels.\n\nHere's a breakdown of how hormones connect to migraine in women at different life stages:\n\n*   **Menstrual Migraine:** These migraines typically occur from two days before menstruation to three days after its onset. They are caused by the natural drop in estrogen during the late luteal phase of the menstrual cycle. These attacks can be longer, more severe, and less responsive to treatment.\n*   **Pregnancy:** Migraines often improve during the second and third trimesters of pregnancy due to stable high estrogen levels. However, migraine with aura may persist or even worsen.\n*   **Postpartum Period:** A rapid decline in estrogen levels after delivery can trigger severe migraines, which can be further exacerbated by sleep deprivation.\n*   **Perimenopause and Postmenopause:** During perimenopause, unstable estrogen levels can lead to an increase in migraine frequency. However, migraines usually decline after menopause.\n\n**Oral Contraceptives and Migraine:**\n\n*   **Migraine without Aura:** Combination oral contraceptives are generally considered safe and some women may even experience improvement in their migraines due to hormonal stabilization.\n*   **Migraine with Aura:** Estrogen-containing contraceptives are generally avoided in women with migraine with aura because they may increase the risk of stroke. Progestin-only pills, IUDs (levonorgestrel or copper), and non-hormonal methods are preferred contraceptive options in these cases.\n\nHormonal fluctuations influence migraine through their effects on serotonin pathways, nociceptive (pain) processing, and cortical excitability. Estrogen specifically plays a central role in modulating pain sensitivity and trigeminovascular activation.\n\nIf you experience migraines, especially those related to your menstrual cycle or other hormonal changes, it's important to discuss this with a healthcare professional. They can help you understand your specific triggers and explore appropriate management options.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "see-a-doctor",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "When should someone with migraines see a doctor?",
+      "answer": "It's important to see a doctor for migraines in several situations. You should consult a primary care physician or a neurologist for diagnosis if you experience symptoms consistent with migraine, especially if they are affecting your daily life.\n\nSpecifically, you should see a doctor if:\n\n*   **You suspect you have chronic migraine:** This is defined as experiencing headaches on 15 or more days per month for at least three months, with at least 8 of those days having migraine-like features. A neurologist with migraine expertise can help with diagnosis and treatment, which may include Botox or CGRP inhibitors.\n*   **You have \"red flag\" symptoms:** These are signs that your headache might be something more serious. They include:\n    *   A \"thunderclap\" headache (a sudden, severe headache)\n    *   Fever\n    *   Neck stiffness\n    *   New neurological deficits (like weakness or numbness)\n    *   New headaches after age 50\n    *   Headache onset after trauma\n*   **You experience migraine with aura and have certain risk factors:** If you experience visual or sensory auras before or during your headache, and you also smoke or use estrogen-containing contraceptives, you should discuss this with your doctor due to an elevated ischemic stroke risk.\n*   **You have menstrual migraines:** If your migraines consistently occur 2 days before to 3 days after your menstrual period, you might benefit from consulting a gynecologist and neurologist for hormonal management.\n*   **You have atypical features or complications:** If your migraines are unusual in any way, or if you're experiencing complications like status migrainosus (a migraine attack lasting more than 72 hours), you should seek medical attention.\n\nA doctor will typically diagnose migraines based on a detailed history of your symptoms, a symptom diary, and a neurological exam. Neuroimaging (like an MRI or CT scan) may be indicated if there are atypical features or red flags to rule out other conditions.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "aura-symptoms",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What are typical symptoms of a migraine aura?",
+      "answer": "Migraine aura symptoms can vary, but commonly include visual disturbances such as:\n\n*   **Visual Aura:**\n    *   Dots or flashing lights\n    *   Wavy or jagged lines\n    *   Blind spots\n    *   Tunnel vision\n\nIn addition to visual symptoms, about half of people who experience migraine with aura also report non-visual symptoms. The most common non-visual aura symptoms are numbness and tingling, followed by difficulty recalling or speaking words. Some people also report a change in their sense of smell.\n\nIt's worth noting that the presentation of migraine with aura can differ significantly between individuals and even between attacks in the same person.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1529 - Hansen et al. - 2016 - Variability of clinical features in attacks of migraine with aura.pdf"
+      ]
+    },
+    {
+      "case_id": "chronic-vs-episodic",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What is the difference between chronic and episodic migraine?",
+      "answer": "The main difference between chronic and episodic migraine lies in the frequency of headache days:\n\n*   **Episodic migraine** is characterized by experiencing migraine attacks for 1 to 14 days per month.\n*   **Chronic migraine** is defined as having migraine or migraine-like headaches for 15 or more days per month, over a period of at least three months.\n\nChronic migraine often develops gradually from episodic migraine, with an increase in the number of migraine days over time, and is considered a complication of episodic migraine.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/205 - Changes in patient functioning and disability- results from a phase 3, double-blind, randomized, placebo-controlled clinical trial evaluating galcanezumab for chronic migraine prevention (REGAIN).pdf",
+        "research/155 - \"I am now on 'speaking terms' with my migraine monster\" - patient experiences in acceptance-based cognitive behavioral therapy delivered via the internet for migraine- a randomized controlled pilot study using a mixed-method approach.pdf",
+        "research/784 - Long-term efficacy of a double-blind, placebo-controlled, randomized study for repetitive sphenopalatine blockade with bupivacaine vs. saline with the Tx360 device for treatment of chronic migraine.pdf"
+      ]
+    },
+    {
+      "case_id": "menstrual-migraine",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "How are menstrual migraines treated?",
+      "answer": "Menstrual migraines are often more severe and less responsive to treatment than other migraines. They are primarily triggered by the natural drop in estrogen that occurs during the late luteal phase of the menstrual cycle.\n\nManagement options for menstrual migraines can include:\n*   **Mini-preventive therapy:** This involves starting medications like NSAIDs (non-steroidal anti-inflammatory drugs) or triptans two to three days before the expected onset of menstruation.\n*   **Hormonal treatments:** Continuous or extended-cycle oral contraceptives may be an option for appropriate patients.\n*   **Magnesium supplementation:** Taking magnesium during the luteal phase may also be helpful.\n\nOther factors that can improve outcomes for migraine in general, and potentially menstrual migraines, include good sleep hygiene and biofeedback. Regular follow-up with a healthcare professional is important to prevent medication overuse and optimize care.\n\nIt's crucial to consult with a doctor or a headache specialist to determine the best treatment plan for your specific situation.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/359 - Comparison of the Prophylactic Effect Between Acupuncture and Acupressure on Menstrual Migraine- Results of a Pilot Study.pdf",
+        "research/104 - Efficacy and safety of erenumab in women with a history of menstrual migraine.pdf"
+      ]
+    },
+    {
+      "case_id": "caffeine",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "Does caffeine help or worsen migraines?",
+      "answer": "Caffeine can have a complex relationship with migraines. While it's a common ingredient in some over-the-counter pain relievers for headaches, both excessive caffeine intake and caffeine withdrawal can trigger migraines.\n\nHere's a breakdown:\n\n*   **Excessive Intake:** Too much caffeine can lead to migraines.\n*   **Withdrawal:** Suddenly stopping or significantly reducing caffeine intake can also trigger migraines due to changes in adenosine signaling and vascular tone.\n*   **Consistency is Key:** The most important thing is to keep your caffeine intake consistent and moderate.\n\nIf you experience migraines, it can be helpful to track your caffeine consumption (timing and dose) in a headache diary. This can help you identify any patterns and discuss them with your primary care clinician or a neurologist.\n\nIt's important to consult a healthcare professional for personalized advice regarding caffeine and migraine management.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/1576 - Peroutka et al. - 2004 - Efficacy of Diclofenac Sodium Softgel 100 mg With or Without Caffeine 100 mg in Migraine Without Aur.pdf"
+      ]
+    },
+    {
+      "case_id": "children-migraine",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "How do migraines present in children?",
+      "answer": "Migraines in children can present differently than in adults, and some specific types are more commonly recognized in pediatric populations. Here are some ways migraines can manifest in children:\n\n*   **Abdominal Migraine:** This is a distinct type of migraine seen in children, characterized by recurrent episodes of moderate to severe abdominal pain, typically in the middle, around the navel, or poorly localized. This pain can last 2-72 hours and is often accompanied by symptoms like anorexia, nausea, vomiting, or pallor (pale skin). Importantly, there is **no headache** during these attacks. Abdominal migraines often improve with age.\n*   **Hemiplegic Migraine:** This is a rare type where the aura includes motor changes, specifically transient weakness on one side of the body. Other reversible aura symptoms like visual, sensory, or speech/language disturbances can also occur. The motor weakness usually lasts less than 72 hours but can persist longer. Diagnosis involves a neurological exam, family history, and sometimes genetic testing if familial.\n*   **Retinal Migraine:** Children with retinal migraine experience at least two attacks of fully reversible monocular (one-sided) visual disturbance, which can be positive (flashing lights) or negative (vision loss). These visual symptoms spread gradually over at least 5 minutes, last 5-60 minutes, and are accompanied or followed by a headache within 60 minutes. It's crucial to rule out other retinal or vascular diseases.\n*   **Status Migrainosus:** This refers to a migraine attack that lasts for more than 72 hours, which is severe and prolonged. It requires urgent medical treatment, sometimes including intravenous (IV) therapy.\n\nIt's important to remember that:\n\n*   Diagnosis of these conditions often involves excluding other disorders and looking at the pattern of symptoms.\n*   For any concerns about a child's health, especially recurrent pain or neurological symptoms, it's essential to consult a pediatrician or a pediatric neurologist for proper diagnosis and management.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/250 - Osmophobia in migraine classification- a multicentre study in juvenile patients.pdf",
+        "research/1716 - Lanzi et al. - 2007 - The Effectiveness of Hospitalization in the Treatment of Paediatric Idiopathic Headache Patients.pdf"
+      ]
+    },
+    {
+      "case_id": "cgrp",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What are CGRP inhibitors and when are they used for migraine?",
+      "answer": "CGRP (Calcitonin Gene-Related Peptide) inhibitors are a newer class of medications used to treat migraine. CGRP is a naturally occurring inflammatory mediator and a potent vasodilator, meaning it widens blood vessels. It plays a key role in triggering migraine attacks. During a migraine, CGRP levels in the blood are elevated.\n\nCGRP inhibitors, specifically small-molecule CGRP receptor antagonists (often called \"gepants\"), work by targeting CGRP or its receptor. They are believed to alleviate migraine through several mechanisms:\n*   Blocking neurogenic inflammation\n*   Decreasing artery dilation\n*   Inhibiting pain transmission\n\nThese medications are used for the management of acute migraine attacks. They represent a new treatment option, particularly for individuals who experience inadequate responses, have medical contraindications, or adverse events with traditional migraine treatments like triptans. The goal of CGRP inhibitors is to reduce migraine frequency and alleviate the significant burden of illness and disability associated with migraines.\n\nIt's important to discuss any migraine treatment options with a healthcare professional to determine the most appropriate course of action for your specific needs.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/753 - The Pharmacokinetics, Safety, and Tolerability of Rimegepant 75\u00a0mg Are Similar in Elderly and Nonelderly Adults- A Phase 1, Open-Label, Parallel-Group, Single-Dose Study.pdf",
+        "research/1766 - Bhardwaj et al. - 2023 - Rimegepant 75 mg in Subjects With Hepatic Impairment Results of a Phase 1, Open\u2010Label, Single\u2010Dose,.pdf",
+        "research/1690 - Sinclair et al. - 2010 - Inhibition of capsaicin\u2010induced increase in dermal blood flow by the oral CGRP receptor antagonist,.pdf"
+      ]
+    },
+    {
+      "case_id": "overuse-headache",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What is medication overuse headache and how is it avoided?",
+      "answer": "Medication-overuse headache (MOH) is a secondary headache disorder that occurs when people frequently use acute or symptomatic headache medications, such as analgesics, triptans, ergots, or opioid/combination analgesics, to treat primary headache disorders like chronic migraine or chronic tension-type headache. This overuse can lead to a new type of headache or a significant worsening of an existing headache, increasing its frequency, duration, and/or intensity.\n\nMOH is diagnosed in individuals with a pre-existing primary headache disorder (at least 15 headache days/month) who use acute or symptomatic headache medication for at least 15 days/month (for simple analgesics) or at least 10 days/month (for triptans, ergots, and opioid/combination analgesics) for at least 3 months. This creates a vicious cycle where increasing medication use to control headaches actually makes them worse.\n\nThe good news is that MOH often improves by reducing or discontinuing the overused medication and then initiating preventive therapy for the underlying primary headache disorder.\n\nTo avoid MOH, it's crucial to manage acute headache medications carefully and adhere to prescribed dosages and frequencies. If you experience frequent headaches, it's important to consult a healthcare professional to develop a comprehensive treatment plan that may include preventive therapies and strategies to avoid medication overuse.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1424 - Diener et al. - 2021 - Efficacy, tolerability, and safety of eptinezumab in patients with a dual diagnosis of chronic migra.pdf",
+        "research/1334 - Carlsen et al. - 2020 - Comparison of 3 Treatment Strategies for Medication Overuse Headache A Randomized Clinical Trial.pdf",
+        "research/612 - Advice alone vs. structured detoxification programmes for medication overuse headache- a prospective, randomized, open-label trial in transformed migraine patients with low medical needs.pdf"
+      ]
+    },
+    {
+      "case_id": "status-migrainosus",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What is status migrainosus and how is it managed?",
+      "answer": "Status migrainosus is a severe and debilitating migraine attack that lasts for more than 72 hours. It's often resistant to typical migraine treatments.\n\nWhile the information I have doesn't explicitly define \"status migrainosus,\" it does provide general strategies for managing migraines, which can be applied to severe cases. These strategies include:\n\n**1. Acute (Abortive) Therapy:** These treatments are used to stop a migraine attack once it has started. Options include:\n    *   NSAIDs (non-steroidal anti-inflammatory drugs)\n    *   Triptans\n    *   Ergot derivatives\n    *   Gepants\n    *   Ditans\n    *   Antiemetics (for nausea and vomiting)\n    *   Opioids and barbiturates are generally reserved for very refractory cases (when other treatments haven't worked).\n\n**2. Preventive Therapy:** These medications are taken regularly to reduce the frequency and severity of migraine attacks. Examples include:\n    *   Beta-blockers\n    *   Calcium channel blockers\n    *   Antidepressants\n    *   Antiepileptics\n    *   CGRP monoclonal antibodies\n    *   Botulinum toxin\n    *   Gepants (atogepant, rimegepant)\n\n**3. Alternative Therapies:**\n    *   **Neuromodulation Therapy:** Non-invasive nerve stimulation techniques such as transcutaneous, supraorbital, vagal, or transcranial magnetic stimulation.\n\n**4. Lifestyle and Supportive Measures:** These can help minimize recurrence and improve overall well-being:\n    *   Good sleep hygiene\n    *   Adequate hydration\n    *   Balanced meals\n    *   Stress management\n    *   Avoiding known triggers\n    *   Exercise\n    *   Supplements like magnesium, riboflavin, and coenzyme Q10 may also offer additional benefits.\n\nIt's important to note that medication overuse can lead to \"medication overuse headache\" (MOH), which can worsen headache frequency and reduce the effectiveness of treatments. Management of MOH requires withdrawing the overused medications and starting preventive therapy.\n\nGiven the severity of status migrainosus, it's crucial to seek professional medical consultation for an accurate diagnosis and a tailored treatment plan. A healthcare provider can help determine the most appropriate course of action for your specific situation.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/90 - Acute migraine medication adherence, migraine disability and patient satisfaction- A naturalistic daily diary study.pdf",
+        "research/975 - Stratified care vs step care strategies for migraine- the Disability in Strategies of Care (DISC) Study- A randomized trial.pdf"
+      ]
+    },
+    {
+      "case_id": "vestibular",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "What is vestibular migraine?",
+      "answer": "Vestibular migraine (VM) is a type of migraine characterized primarily by vertigo or dizziness, rather than a headache. It's now recognized as a distinct diagnostic entity by organizations like the B\u00e1r\u00e1ny Society and the International Headache Society.\n\nHere are some key points about vestibular migraine:\n\n*   **Symptoms:** The main symptom is vertigo, which can be spinning or non-spinning dizziness, unsteadiness, or a sensation of motion. These vestibular symptoms can be episodic or fluctuating and are typically of at least moderate severity.\n*   **Relationship to Migraine:** While headache may not always be present during an attack, vestibular migraine is considered an integral part of migraine symptomatology. Patients with migraine are more likely to experience vestibular symptoms compared to those with tension-type headaches.\n*   **Diagnostic Criteria:** Diagnostic criteria for vestibular migraine require the presence of migraine headaches, episodic or fluctuating vestibular symptoms of at least moderate severity, and the occurrence of migraine symptoms during attacks of vertigo.\n*   **Prevalence:** Studies have estimated the lifetime prevalence of migrainous vertigo to be around 0.98% to 2.7% in the general adult population. In specialized dizziness clinics, it's a frequent cause of spontaneous recurrent vertigo attacks, accounting for approximately 10% of patients.\n*   **Demographics:** The majority of patients with VM are middle-aged.\n*   **Comorbidity:** Vestibular migraine can be a precipitating factor for other conditions like Persistent Postural-Perceptual Dizziness (PPPD), a chronic dizziness condition. Motion sickness is also very common in individuals with migraine, affecting about half of them.\n*   **Treatment:** Recommendations for treating vestibular migraine often align with general migraine treatments. Some prophylactic medications that have been suggested include beta-blockers, valproic acid, lamotrigine, tricyclic antidepressants, topiramate, flunarizine, propranolol, and venlafaxine.\n\nIf you are experiencing symptoms like these, it's important to consult a healthcare professional for an accurate diagnosis and appropriate management plan.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/483 - Prevention of motion sickness with rizatriptan- a double-blind, placebo-controlled pilot study.pdf",
+        "research/1342 - PROVEMIG investigators et al. - 2019 - Results and lessons learnt from a randomized controlled trial prophylactic treatment of vestibular.pdf"
+      ]
+    },
+    {
+      "case_id": "pregnancy-migraine",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "How are migraines managed during pregnancy?",
+      "answer": "During pregnancy, migraine management requires careful consideration due to safety concerns regarding medication. Interestingly, many women find that their migraines actually improve during the second and third trimesters, likely due to the stable, high estrogen levels. However, if you experience migraine with aura, it's possible for your migraines to continue or even worsen during pregnancy.\n\nBecause medication choices are limited and require careful evaluation for safety during pregnancy, it's crucial to consult with your healthcare provider. They can help you develop a personalized management plan that is safe for both you and your baby.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "botox-migraine",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "When is botulinum toxin used for migraine?",
+      "answer": "Botulinum toxin type A (BoNT-A) has been studied and used for the treatment of migraine, particularly for the prevention of chronic migraine in adults. While some initial studies on its general use for migraine had conflicting results, it has shown efficacy in open-label studies and specific trials for chronic migraine.\n\nIt's important to note that botulinum toxin is a potent neurotoxin, and its use for migraine is typically for preventive treatment rather than acute pain relief. If you are experiencing migraines, I recommend consulting a healthcare professional to discuss appropriate treatment options.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1575 - Chankrachang et al. - 2011 - Prophylactic Botulinum Type A Toxin Complex (Dysport\u00ae ) for Migraine Without Aura.pdf",
+        "research/767 - Method of injection of onabotulinumtoxinA for chronic migraine- a safe, well-tolerated, and effective treatment paradigm based on the PREEMPT clinical program.pdf",
+        "research/1057 - FORWARD Study- Evaluating the Comparative Effectiveness of OnabotulinumtoxinA and Topiramate for Headache Prevention in Adults With Chronic Migraine.pdf"
+      ]
+    },
+    {
+      "case_id": "sleep-migraine",
+      "category": "on_corpus",
+      "turn_index": 1,
+      "question": "How is sleep related to migraine frequency?",
+      "answer": "There's a significant relationship between sleep and migraine frequency. Research indicates that sleep problems, including poor sleep quality, sleep disturbances, and variations in nightly sleep duration and fragmentation, are linked to an increased risk and frequency of migraines.\n\nMany studies have explored this connection, showing that issues like insomnia and other sleep disorders are prevalent among individuals who experience migraines. This suggests a bidirectional relationship where sleep can influence migraines, and migraines can, in turn, affect sleep.\n\nIt's important to prioritize healthy sleep habits if you experience migraines, and to discuss any persistent sleep issues with a healthcare professional.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/480 - Digital Cognitive Behavioral Therapy for Insomnia in Women With Chronic Migraines.pdf",
+        "research/64 - Health-related quality of life and associated factors in Chinese menstrual migraine patients- a cross-sectional study.pdf"
+      ]
+    },
+    {
+      "case_id": "toddler-eczema",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "What is the recommended treatment for eczema in toddlers?",
+      "answer": "Eczema in toddlers can be challenging, and while I can't provide medical advice or a diagnosis, I can offer some general information. The recommended treatment often focuses on managing symptoms and preventing flare-ups. This typically involves:\n\n*   **Moisturizing:** Regularly applying emollients or moisturizers to keep the skin hydrated.\n*   **Avoiding Triggers:** Identifying and minimizing exposure to irritants like certain soaps, detergents, or allergens.\n*   **Topical Steroids:** In some cases, a healthcare professional might prescribe mild topical corticosteroids to reduce inflammation during flare-ups.\n*   **Wet Wraps:** For more severe cases, wet wrap therapy might be recommended to soothe the skin and enhance the absorption of medications.\n\nIt's really important to consult a pediatrician or a dermatologist for an accurate diagnosis and a personalized treatment plan for your toddler's eczema. They can assess the severity of the condition and recommend the most appropriate and safe course of action.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "diabetes-diet",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "What is the best diet for managing type 2 diabetes?",
+      "answer": "While I don't have specific information on the \"best\" diet for managing type 2 diabetes in my current knowledge base, I can offer some general, evidence-based advice.\n\nManaging type 2 diabetes often involves dietary changes focused on:\n*   **Balancing carbohydrates:** Choosing complex carbohydrates (whole grains, vegetables, fruits) over simple sugars, and distributing carb intake throughout the day.\n*   **Increasing fiber:** Fiber helps regulate blood sugar levels and can be found in many plant-based foods.\n*   **Including lean protein:** Protein can help with satiety and blood sugar control.\n*   **Healthy fats:** Focusing on unsaturated fats (avocado, nuts, seeds, olive oil) and limiting saturated and trans fats.\n*   **Portion control:** Eating appropriate portion sizes to manage calorie intake and blood sugar.\n\nIt's really important to remember that what works best can vary greatly from person to person. I strongly recommend consulting with a healthcare professional, such as a doctor or a registered dietitian. They can help you create a personalized meal plan that considers your individual health needs, preferences, and lifestyle, and can provide the most accurate and up-to-date guidance for managing your type 2 diabetes.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "sprained-ankle",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "How should I treat a sprained ankle?",
+      "answer": "I can't give you medical advice, but for a sprained ankle, a common approach is RICE: Rest, Ice, Compression, and Elevation.\n\n*   **Rest:** Avoid putting weight on your ankle.\n*   **Ice:** Apply ice packs for 15-20 minutes every 2-3 hours to reduce swelling.\n*   **Compression:** Use an elastic bandage to compress the ankle and help with swelling.\n*   **Elevation:** Keep your ankle raised above your heart to minimize swelling.\n\nIt's really important to see a doctor or another healthcare professional to get a proper diagnosis and treatment plan, especially to make sure it's not a more serious injury. They can provide the best guidance for your specific situation.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "baby-vaccines",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "Which vaccines does my newborn need in the first year?",
+      "answer": "I cannot provide medical advice or a specific vaccination schedule for your newborn. It's essential to consult with your pediatrician or another qualified healthcare professional. They can provide you with the most accurate and personalized vaccination schedule based on your baby's individual health needs and the latest guidelines.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "ohip-acupuncture",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "Is acupuncture covered by OHIP in Ontario?",
+      "answer": "I don't have specific information about OHIP coverage for acupuncture. Healthcare coverage can change, and it often depends on the specific circumstances and the type of acupuncture treatment.\n\nTo get the most accurate and up-to-date information, I recommend checking the official Ontario Ministry of Health website or contacting OHIP directly. You could also speak with your doctor or a registered acupuncturist, as they might have information about coverage options.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "child-flu",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "What is the best treatment for flu in young children?",
+      "answer": "I cannot provide specific medical advice or recommend treatments. It's really important to consult a healthcare professional, like a pediatrician, for the best and most appropriate treatment for the flu in young children. They can accurately diagnose the condition and recommend a treatment plan tailored to the child's specific needs.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "back-pain",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "How do I fix chronic lower back pain?",
+      "answer": "Chronic lower back pain can be really challenging, and I understand you're looking for ways to address it. It's important to remember that I'm an AI and cannot provide medical advice or a diagnosis.\n\nTo effectively manage and potentially \"fix\" chronic lower back pain, it's crucial to consult with a healthcare professional, such as a doctor, physical therapist, or specialist. They can accurately diagnose the cause of your pain and create a personalized treatment plan for you.\n\nTreatment for chronic lower back pain often involves a combination of approaches, which might include:\n\n*   **Physical therapy and exercise:** Specific exercises and stretches can help strengthen muscles, improve flexibility, and support your spine.\n*   **Medication:** Over-the-counter pain relievers, or prescription medications in some cases, might be recommended to manage pain and inflammation.\n*   **Lifestyle modifications:** This could include changes to posture, ergonomic adjustments at work, weight management, and stress reduction techniques.\n*   **Mind-body techniques:** Practices like yoga, meditation, or mindfulness can help manage pain perception and improve overall well-being.\n*   **Other therapies:** Depending on the cause, a doctor might suggest other interventions like massage, acupuncture, or in some rare cases, surgical options.\n\nSince chronic pain is a complex issue, finding what works best often requires patience and a multi-faceted approach guided by medical professionals. Please reach out to your doctor to discuss your symptoms and explore the best treatment options for you.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "cholesterol",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "How can I lower my cholesterol without statins?",
+      "answer": "While I don't have specific information on lowering cholesterol without statins in my current knowledge base, I can offer some general, evidence-based strategies that are often recommended for managing cholesterol through lifestyle changes. It's really important to discuss any changes to your health plan with your doctor or a healthcare professional, as they can provide personalized advice based on your individual health needs.\n\nHere are some common approaches that may help with cholesterol management:\n\n*   **Dietary Changes:**\n    *   **Reduce Saturated and Trans Fats:** These fats can raise your LDL (\"bad\") cholesterol. They are often found in red meat, processed foods, and some baked goods.\n    *   **Increase Soluble Fiber:** Foods rich in soluble fiber, like oats, barley, apples, pears, and beans, can help reduce the absorption of cholesterol in your digestive system.\n    *   **Eat Omega-3 Fatty Acids:** Found in fatty fish (salmon, mackerel), flaxseeds, and walnuts, omega-3s can help reduce triglycerides, another type of fat in the blood.\n    *   **Incorporate Plant Sterols and Stanols:** These substances, found in some fortified foods, can help block the absorption of cholesterol.\n\n*   **Regular Physical Activity:** Engaging in regular exercise can help improve your cholesterol levels by increasing HDL (\"good\") cholesterol and lowering LDL cholesterol. Aim for at least 150 minutes of moderate-intensity aerobic activity per week.\n\n*   **Maintain a Healthy Weight:** Losing excess weight, if applicable, can have a positive impact on your cholesterol levels.\n\n*   **Quit Smoking:** Smoking damages your blood vessels and can lower your HDL cholesterol. Quitting can significantly improve your cardiovascular health.\n\n*   **Limit Alcohol Intake:** Excessive alcohol consumption can increase your triglyceride levels.\n\nAgain, these are general suggestions, and what works best for you will depend on your specific health situation. I strongly recommend consulting with your doctor to create a comprehensive plan that is safe and effective for you. They can also help you understand your cholesterol numbers and monitor your progress.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "pollen-allergy",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "Do allergy shots work for seasonal pollen allergies?",
+      "answer": "Yes, allergy shots, also known as immunotherapy, can be an effective treatment for seasonal pollen allergies. They work by gradually exposing you to increasing amounts of the allergen (like pollen) over time, which helps your immune system build tolerance. This can lead to reduced symptoms and sometimes even long-term relief.\n\nIt's important to discuss with an allergist if allergy shots are the right treatment option for you. They can help determine the specific allergens you're sensitive to and create a personalized treatment plan.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "broken-wrist",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "How long does a broken wrist take to heal?",
+      "answer": "Healing time for a broken wrist can vary quite a bit depending on the severity and type of fracture, your age, and your overall health. Generally, it can take anywhere from 6 weeks to several months for the bone to fully heal.\n\nHowever, it's really important to consult with a healthcare professional, like a doctor or an orthopedic specialist, to get an accurate assessment and a personalized recovery plan. They can provide the most precise information based on your specific situation.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "acid-reflux",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "What foods should I avoid with acid reflux?",
+      "answer": "While I don't have specific information on foods to avoid with acid reflux in my current knowledge base, I can offer some general advice.\n\nMany people find that certain foods can trigger or worsen their acid reflux symptoms. Common culprits often include:\n\n*   **High-fat foods:** These can slow down stomach emptying, which can increase the risk of acid reflux.\n*   **Spicy foods:** They can irritate the esophagus and worsen symptoms.\n*   **Acidic foods and drinks:** Tomatoes, citrus fruits, and carbonated beverages can sometimes trigger reflux.\n*   **Caffeine and alcohol:** These can relax the lower esophageal sphincter, allowing stomach acid to flow back up.\n*   **Chocolate and peppermint:** These can also relax the lower esophageal sphincter.\n\nIt's important to remember that triggers can vary from person to person. Keeping a food diary can be a helpful way to identify which foods specifically affect you.\n\nFor personalized advice and a comprehensive management plan for acid reflux, I strongly recommend consulting with a healthcare professional or a registered dietitian. They can provide guidance tailored to your specific needs and health condition.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "iron-anemia",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "How do I raise my iron levels if I'm anemic?",
+      "answer": "I cannot provide specific medical advice on how to raise your iron levels if you're anemic. It's really important to consult with a healthcare professional, like a doctor or a registered dietitian, for a proper diagnosis and a personalized treatment plan. They can help determine the cause of your anemia and recommend the best course of action, which might include dietary changes, iron supplements, or other interventions.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "insomnia-general",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "What are good treatments for chronic insomnia?",
+      "answer": "Cognitive Behavioral Therapy for Insomnia (CBT-I) is considered a first-line treatment for chronic insomnia. It's an effective and often underutilized treatment option. CBT-I has been shown to be beneficial for people with chronic insomnia, even when it's accompanied by other psychiatric and medical conditions.\n\nIf you are struggling with chronic insomnia, I highly recommend speaking with a healthcare professional. They can help determine the best course of treatment for your specific situation.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1637 - Malarkey et al. - 2024 - Internet-Guided Cognitive Behavioral Therapy for Insomnia Among Patients With Traumatic Brain Injury.pdf",
+        "research/480 - Digital Cognitive Behavioral Therapy for Insomnia in Women With Chronic Migraines.pdf"
+      ]
+    },
+    {
+      "case_id": "sunburn",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "How do I treat a bad sunburn?",
+      "answer": "I'm sorry to hear you're dealing with a bad sunburn! While I can't give medical advice, I can offer some general tips that might help you feel more comfortable.\n\nFor sunburns, it's often recommended to:\n*   **Cool the skin:** Take a cool bath or shower, or apply cool compresses to the affected areas.\n*   **Moisturize:** Apply a gentle, fragrance-free moisturizer, aloe vera gel, or a hydrocortisone cream to help soothe the skin and reduce dryness.\n*   **Stay hydrated:** Drink plenty of water to help prevent dehydration.\n*   **Avoid further sun exposure:** Protect the sunburned skin from the sun while it heals by wearing protective clothing and staying in the shade.\n*   **Don't pick or peel:** Let your skin heal naturally. Blisters should be left intact to prevent infection.\n*   **Consider pain relief:** Over-the-counter pain relievers like ibuprofen can help reduce pain and inflammation.\n\nIf your sunburn is severe, covers a large area, causes blistering, fever, chills, or severe pain, or if you have any concerns, it's always best to consult a healthcare professional. They can provide a proper diagnosis and recommend the best course of treatment for your specific situation.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": []
+    },
+    {
+      "case_id": "tooth-abscess",
+      "category": "off_corpus",
+      "turn_index": 1,
+      "question": "What should I do about a painful tooth abscess?",
+      "answer": "I'm really sorry to hear you're experiencing a painful tooth abscess. That sounds very uncomfortable.\n\nIt's crucial to see a dentist as soon as possible for a tooth abscess. This is a serious condition that can lead to more significant health problems if not treated promptly by a professional. A dentist will be able to properly diagnose the situation and provide the necessary treatment to relieve your pain and address the infection.\n\nPlease remember that I am an AI and cannot provide medical advice or diagnoses. Your dentist is the best person to help you with this.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "relief-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "How can I relieve a migraine?",
+      "answer": "I apologize, but the information I have does not directly provide ways to relieve a migraine once it has started. It primarily focuses on what a migraine is, its causes, and common triggers.\n\nHowever, I can offer some general information that might be helpful. Many people find relief from migraines by:\n\n*   **Resting in a dark, quiet room:** Reducing sensory input can often lessen migraine severity.\n*   **Applying a cold or warm compress:** Some individuals find relief by placing a cold pack on their forehead or a warm compress on their neck.\n*   **Hydration:** Dehydration can sometimes trigger or worsen headaches, so staying well-hydrated is important.\n*   **Over-the-counter pain relievers:** For some, medications like ibuprofen, naproxen, or acetaminophen can help with milder migraines, especially if taken early.\n*   **Caffeine (in moderation):** For some people, a small amount of caffeine can help, but too much or withdrawal can also be a trigger.\n\nIt's important to remember that these are general suggestions, and what works for one person might not work for another. Migraines can be debilitating, and it's always best to consult a healthcare professional for an accurate diagnosis and a personalized treatment plan. They can discuss specific migraine medications, preventive strategies, and other therapies that might be suitable for you.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "relief-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "What else can I try?",
+      "answer": "Since my knowledge base doesn't have specific immediate relief strategies for migraines beyond what I've already shared, I'll offer some additional general approaches that people often explore. Remember, these are not medical advice, and it's always best to discuss them with your doctor, especially if you experience frequent or severe migraines.\n\nHere are some other things you might consider trying, often in conjunction with professional medical guidance:\n\n*   **Mind-Body Techniques:**\n    *   **Relaxation Techniques:** Practices like deep breathing exercises, progressive muscle relaxation, or meditation can help manage stress, which is a common migraine trigger.\n    *   **Biofeedback:** This technique can teach you to control certain body functions, like heart rate or muscle tension, which might help reduce migraine frequency or severity for some individuals.\n*   **Dietary and Lifestyle Adjustments:**\n    *   **Migraine Diary:** Keeping a detailed diary of your migraines, including potential triggers (foods, stress, sleep patterns, weather changes), can help you identify and avoid them.\n    *   **Regular Sleep Schedule:** Maintaining a consistent sleep schedule can be beneficial, as both too much and too little sleep can trigger migraines.\n    *   **Regular Meals:** Skipping meals can sometimes lead to migraines, so try to eat at regular intervals.\n    *   **Trigger Food Avoidance:** If you've identified specific foods (like aged cheese, processed meats, or certain artificial sweeteners) as triggers, avoiding them might help.\n*   **Acupuncture:** Some people find relief from migraines through acupuncture, an ancient Chinese medicine technique.\n*   **Herbal Remedies and Supplements:** While more research is needed, some individuals explore supplements like magnesium, riboflavin (Vitamin B2), or feverfew. **It is crucial to consult your doctor before starting any new supplements, as they can interact with medications or have side effects.**\n\nAgain, the most important step is to work with a healthcare professional, such as your primary doctor or a neurologist specializing in headaches, to develop a comprehensive plan for managing your migraines. They can help you explore prescription medications, preventive treatments, and other strategies tailored to your specific situation.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "log_gap"
+      ],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "triggers-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "What are common migraine triggers?",
+      "answer": "Migraine triggers can vary greatly from person to person, but some common ones include:\n\n*   **Hormonal Changes:** These can be related to the menstrual cycle, pregnancy, menopause, or oral contraceptives.\n*   **Dietary Factors:** Certain foods and drinks like aged cheese, MSG, aspartame, processed meats, red wine, and caffeine (either too much or withdrawal) can be triggers. Skipping meals can also be a factor.\n*   **Sleep Disturbances:** Both too little or too much sleep, as well as an irregular sleep schedule, can trigger migraines.\n*   **Stress and Emotional Factors:** Work stress, anxiety, and even the \"let-down\" period after stress can be triggers.\n*   **Sensory Factors:** Bright lights, loud noises, and strong odors (like perfumes or paint thinner) are common sensory triggers.\n*   **Environmental Factors:** Changes in weather, shifts in barometric pressure, and heat can also play a role.\n*   **Physical Exertion:** Intense physical activity can sometimes trigger a migraine.\n*   **Medications:** Certain medications, such as vasodilators and oral contraceptives, can also be triggers.\n\nIt's important to remember that trigger exposure doesn't guarantee a migraine, but consistent patterns are often observed in individuals. Keeping a headache diary can be very helpful in identifying your specific triggers.\n\nIf you're experiencing migraines, it's always best to consult with a healthcare professional for a proper diagnosis and personalized management plan.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "triggers-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "Which of those matter most for teenagers?",
+      "answer": "I don't have specific information in my knowledge base about which migraine triggers \"matter most\" for teenagers compared to the general population. Migraine triggers can be very individual, regardless of age.\n\nHowever, based on the general triggers, some that might be particularly relevant for teenagers due to common lifestyle factors include:\n\n*   **Hormonal Changes:** Puberty brings significant hormonal shifts, which can influence migraines.\n*   **Sleep Disturbances:** Irregular sleep schedules, common with school, social activities, and screen time, can be a major trigger.\n*   **Stress and Emotional Factors:** School pressure, social dynamics, and anxiety are common stressors for teenagers.\n*   **Dietary Factors:** Skipping meals, inconsistent eating habits, and consumption of certain foods and drinks (like caffeine) could also play a role.\n\nTo understand what triggers are most relevant for a specific teenager, it would be best to consult with a healthcare professional. They can help identify individual triggers and develop a personalized management plan.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "meds-side-effects",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "What medications treat acute migraine attacks?",
+      "answer": "Acute migraine attacks can be treated with various medications, including both over-the-counter and prescription options. Triptans are a common class of prescription medications used for acute migraine treatment. Some examples mentioned in the literature include frovatriptan, rizatriptan, eletriptan, and almotriptan.\n\nAdditionally, newer classes of medications like calcitonin gene-related peptide (CGRP)-targeted monoclonal antibodies and gepants have been developed for migraine prevention and acute treatment. Lasmiditan, a selective 5-HT1F agonist, is another medication mentioned for acute migraine treatment.\n\nIt's important to note that effective acute treatment aims to alleviate an episode safely and rapidly, ideally within two hours of treatment. However, around 34% of patients may respond poorly to treatment, which can lead to increased symptom severity and disability, and potentially contribute to migraine chronification or medication-overuse headache.\n\nFor personalized advice and to determine the best treatment plan for your specific situation, it's always recommended to consult with a healthcare professional.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/691 - Optimization of acute medication use following eptinezumab initiation during a migraine attack- post hoc analysis of the RELIEF study.pdf",
+        "research/891 - Lasmiditan efficacy in migraine attacks with mild vs. moderate or severe pain.pdf",
+        "research/923 - MAP0004, orally inhaled dihydroergotamine for acute treatment of migraine- efficacy of early and late treatments.pdf"
+      ]
+    },
+    {
+      "case_id": "meds-side-effects",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "What are the side effects of those?",
+      "answer": "It's important to discuss potential side effects with your doctor, as they can vary depending on the specific medication, your individual health, and other factors. Here's a general overview of side effects for some acute migraine medications:\n\n**Triptans:**\nTriptans can have side effects related to chest, throat, neck, or jaw pain, tightness, pressure, or heaviness. Common side effects reported with specific triptans include:\n*   **Naratriptan:** Nausea (4-5% of patients)\n*   **Sumatriptan:** Paresthesia (3-5%)\n*   **Rizatriptan:** Dizziness (4-9%)\n\n**Lasmiditan:**\nLasmiditan appears to have a distinct adverse event profile, with common side effects primarily being central nervous system (CNS)-related. These include:\n*   Dizziness (9-17%)\n* Somnolence (drowsiness) and fatigue are also reported.\n\nLasmiditan is noted to have high specificity for the 5-HT1F receptor and is not a vasoconstrictor, meaning it does not have the vasoconstrictive effects seen with triptans or ergotamines. This may make it an option for patients with cardiovascular concerns. Studies have not indicated an association with increased suicidal ideation or behavior, hepatic safety issues, or significant effects on ECG findings or vital signs. Immediate hypersensitivity reactions (like rashes) have been reported in less than 1% of cases, typically mild to moderate in severity.\n\n**Gepants:**\nThe provided information did not detail the side effects of gepants.\n\nAlways consult your healthcare provider to understand the potential side effects of any medication and how they might apply to your specific health situation. They can help you weigh the benefits and risks of different treatment options.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/903 - Safety findings from Phase 3 lasmiditan studies for acute treatment of migraine- Results from SAMURAI and SPARTAN.pdf",
+        "research/840 - Safety profile of lasmiditan in patients with migraine in an Asian population.pdf"
+      ]
+    },
+    {
+      "case_id": "prevention-more",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "How can migraines be prevented without medication?",
+      "answer": "Migraine is a common and often disabling headache disorder. While medication is a common approach, nonpharmacological treatments also play an important role in preventing migraines and can be a safer, better-tolerated option.\n\nOne promising non-medication approach is mindfulness practices, such as meditation. Many people with migraines find value in complementary and alternative medicine (CAM) for symptom relief, and there's growing evidence supporting these interventions. Meditation, in particular, has gained attention for treating various pain conditions, including migraines, which are often linked to high stress levels.\n\nMeditation works by helping individuals address their emotional reactions to physical pain sensations. Instead of labeling sensations as negative, mindfulness meditation encourages awareness without judgment. This approach can be used for both preventing and acutely treating chronic pain.\n\nIt's important to remember that I am an AI and cannot provide medical advice. If you are experiencing migraines, I encourage you to consult with a healthcare professional to discuss the best prevention and treatment strategies for your individual needs.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/836 - Efficacy and feasibility of a 12-week Tai Chi training for the prophylaxis of episodic migraine in Hong Kong Chinese women- A randomized controlled trial.pdf",
+        "research/144 - Effect of Different Meditation Types on Migraine Headache Medication Use.pdf",
+        "research/1121 - Recruitment, retention, and adherence in a randomized feasibility trial of mindfulness-based stress reduction for patients with migraine.pdf"
+      ]
+    },
+    {
+      "case_id": "prevention-more",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "Tell me more about the sleep-related ones.",
+      "answer": "You're interested in sleep's role in migraine prevention without medication, which is a great area to focus on! Sleep and migraines have a strong and complex relationship.\n\nHere's what the information suggests:\n\n*   **Sleep Quality and Duration:** Research indicates a connection between sleep quality, duration, and the daily risk of migraine. Both inadequate sleep and excessive sleep can be triggers for migraines in some individuals. Maintaining a consistent sleep schedule and ensuring adequate, restorative sleep are important for managing migraines.\n*   **Chronotype:** Your natural sleep-wake cycle, or chronotype, might also play a role. Understanding your chronotype and aligning your sleep habits with it could be beneficial.\n*   **Sleep Hygiene:** Good sleep hygiene practices are crucial. This generally includes:\n    *   **Consistent Sleep Schedule:** Going to bed and waking up at the same time each day, even on weekends.\n    *   **Creating a Relaxing Bedtime Routine:** Winding down before bed with activities like reading, a warm bath, or gentle stretching.\n    *   **Optimizing Your Sleep Environment:** Ensuring your bedroom is dark, quiet, and cool.\n    *   **Avoiding Stimulants:** Limiting caffeine and nicotine, especially in the hours leading up to bedtime.\n    *   **Limiting Alcohol:** While alcohol can make you feel sleepy, it can disrupt sleep quality later in the night.\n    *   **Regular Exercise:** Engaging in physical activity during the day, but avoiding intense workouts close to bedtime.\n*   **Melatonin:** Some research suggests a possible association between melatonin and episodic migraine, with some studies exploring the prophylactic effects of exogenous melatonin supplementation. However, more research is needed in this area, and it's always best to discuss any supplements with a healthcare professional.\n\n**Important Considerations:**\n\n*   **Individual Triggers:** Sleep-related factors can be significant migraine triggers for many, but individual triggers vary. Keeping a headache diary to track your sleep patterns and migraine occurrences can help you identify your specific triggers.\n*   **Professional Guidance:** While improving sleep hygiene can be very helpful, it's essential to consult with a healthcare professional for personalized advice on managing migraines. They can help you develop a comprehensive prevention plan that addresses your unique needs.\n\nRemember, I'm an AI and cannot provide medical advice. Please discuss any health concerns or changes to your migraine management plan with your doctor.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/480 - Digital Cognitive Behavioral Therapy for Insomnia in Women With Chronic Migraines.pdf",
+        "research/978 - The Effect of Melatonin on Reducing the Frequency and Severity of Migraine Attacks- A Double-Blind, Randomized Clinical Trial.pdf",
+        "research/42 - Behavioral treatment for migraine prophylaxis in adults- Moderator analysis of a randomized controlled trial.pdf"
+      ]
+    },
+    {
+      "case_id": "aura-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "What is a migraine aura?",
+      "answer": "A migraine aura refers to a collection of sensory disturbances that can occur before or during a migraine headache. While the search results provided many references to studies and classifications of migraine with aura, they didn't offer a direct definition of what an aura is or describe its characteristics.\n\nGenerally, migraine aura symptoms are temporary and can affect vision, speech, or other senses. Visual auras are the most common and might include:\n\n*   **Scintillating scotomas:** Flashing or shimmering lights, often in a zigzag pattern, that can expand across the field of vision.\n*   **Blind spots:** Areas of partial or complete vision loss.\n*   **Geometric shapes or patterns.**\n\nOther types of aura can involve:\n\n*   **Sensory changes:** Numbness, tingling, or weakness on one side of the body.\n*   **Speech difficulties:** Trouble finding words or speaking clearly.\n\nIt's important to remember that not everyone who experiences migraines has an aura, and the symptoms of an aura can vary greatly from person to person. If you are experiencing symptoms like these, it's always a good idea to consult a healthcare professional for an accurate diagnosis and personalized advice.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase",
+        "log_gap"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1529 - Hansen et al. - 2016 - Variability of clinical features in attacks of migraine with aura.pdf"
+      ]
+    },
+    {
+      "case_id": "aura-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "How long does it usually last?",
+      "answer": "Migraine aura typically lasts between 5 to 60 minutes. However, motor symptoms, if present, can last up to 72 hours.\n\nIt's also worth noting that the aura can occur before or during the headache phase of a migraine.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/1516 - Al-Karagholi et al. - 2021 - Opening of ATP sensitive potassium channels causes migraine attacks with aura.pdf",
+        "research/1529 - Hansen et al. - 2016 - Variability of clinical features in attacks of migraine with aura.pdf"
+      ]
+    },
+    {
+      "case_id": "cgrp-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "What are CGRP inhibitors?",
+      "answer": "CGRP inhibitors are a class of medications that target calcitonin gene-related peptide (CGRP) or its receptor. CGRP is a neuropeptide and a potent vasodilator that plays a significant role in the development of migraine headaches.\n\nHere's how they work and what they're used for:\n\n*   **Role of CGRP in Migraine:** During a migraine attack, the trigeminovascular system is activated, leading to the release of CGRP into the cranial circulation. This release causes the dilation of intracranial arteries and contributes to the pain and inflammation associated with migraine.\n*   **Mechanism of Action:** CGRP inhibitors work by either blocking the CGRP molecule itself or by blocking its receptor, preventing CGRP from binding and initiating the migraine pathway. By doing so, they can help to:\n    *   Block neurogenic inflammation.\n    *   Decrease artery dilation.\n    *   Inhibit pain transmission.\n*   **Treatment for Migraine:** These inhibitors, particularly small-molecule CGRP receptor antagonists (often called gepants), are a newer class of treatment options for both acute and preventive management of migraine. They offer an alternative for individuals who may not respond well to other migraine treatments like triptans, or who have contraindications to them.\n*   **Other Pain Conditions:** While CGRP has been explored in other painful conditions, its effectiveness for treating human pain states outside of migraine is not yet established.\n\nAlways consult with a healthcare professional to determine the most appropriate treatment for your specific health needs.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1690 - Sinclair et al. - 2010 - Inhibition of capsaicin\u2010induced increase in dermal blood flow by the oral CGRP receptor antagonist,.pdf",
+        "research/753 - The Pharmacokinetics, Safety, and Tolerability of Rimegepant 75\u00a0mg Are Similar in Elderly and Nonelderly Adults- A Phase 1, Open-Label, Parallel-Group, Single-Dose Study.pdf",
+        "research/1352 - Walsh and McWilliams - 2019 - CGRP and Painful Pathologies Other than Headache.pdf"
+      ]
+    },
+    {
+      "case_id": "cgrp-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "Who should consider taking them?",
+      "answer": "CGRP inhibitors are primarily used for the treatment of migraine. People who might consider taking them generally include:\n\n*   **Individuals with frequent migraines:** This could be for both acute treatment (to stop a migraine once it starts) and preventive treatment (to reduce the frequency of migraines).\n*   **Those who haven't found relief with other treatments:** For individuals who experience inadequate response to other migraine medications, such as triptans, or who have contraindications to them, CGRP inhibitors offer an alternative.\n*   **People with a high burden of migraine:** Migraine can significantly impact daily life, and CGRP inhibitors can help reduce the disability and burden associated with the condition.\n\nIt's crucial to remember that deciding whether CGRP inhibitors are right for you is a medical decision that should always be made in consultation with a healthcare professional, such as a neurologist or headache specialist. They can assess your specific situation, medical history, and current medications to determine the most appropriate treatment plan.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "hormones-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "How do hormones affect migraines in women?",
+      "answer": "Hormonal fluctuations significantly influence migraines in women, primarily through their effects on serotonin pathways, pain processing, and cortical excitability. Estrogen plays a central role in modulating pain sensitivity and trigeminovascular activation. It's important to note that estrogen *withdrawal*, rather than high estrogen levels, is considered the primary hormonal trigger for migraines.\n\nHere's how hormones affect migraines during different stages of a woman's life:\n\n*   **Menstrual Migraine:** These migraines typically occur from two days before menstruation to three days after its onset. They are often longer, more severe, and less responsive to treatment. This is caused by the natural drop in estrogen during the late luteal phase. Management options can include mini-preventive therapy with NSAIDs or triptans started a few days before the expected onset, continuous or extended-cycle oral contraceptives (for appropriate patients), and magnesium supplementation during the luteal phase.\n\n*   **Pregnancy:** Migraines often improve during the second and third trimesters due to stable, high estrogen levels. However, migraines with aura may persist or even worsen, and medication choices are limited due to safety concerns.\n\n*   **Postpartum Period:** The rapid decline in estrogen after delivery can trigger severe migraines, which can be further exacerbated by sleep deprivation.\n\n*   **Perimenopause and Postmenopause:** During perimenopause, unstable estrogen levels can lead to an increase in migraine frequency. However, migraines usually decline after menopause.\n\n*   **Oral Contraceptives:**\n    *   **Migraine Without Aura:** Combination oral contraceptives are generally safe and can even lead to improvement in some patients due to hormonal stabilization.\n    *   **Migraine With Aura:** Estrogen-containing contraceptives are generally avoided for women with migraine with aura because they may increase the risk of stroke.\n    *   **Preferred Contraceptive Options:** Progestin-only pills, IUDs (levonorgestrel or copper), and non-hormonal methods are preferred for women with migraine with aura.\n\nIt's crucial to consult a healthcare professional for personalized advice and management strategies for migraines, especially when considering hormonal influences or medication options.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "hormones-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "Does that change during menopause?",
+      "answer": "Yes, the effect of hormones on migraines does change during menopause, specifically during perimenopause and postmenopause.\n\nDuring **perimenopause**, which is the transitional period leading up to menopause, fluctuating and unstable estrogen levels can actually lead to an *increase* in migraine frequency.\n\nHowever, once a woman reaches **postmenopause** (after menstruation has ceased for 12 consecutive months), migraines typically tend to *decline*. This is generally attributed to the more stable, albeit lower, hormone levels after menopause.\n\nIt's important to discuss any changes in migraine patterns with a healthcare professional, as they can provide guidance and appropriate management strategies during this time.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "caffeine-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "Does caffeine help or worsen migraines?",
+      "answer": "Caffeine has a complex relationship with migraines. Both *excessive intake* and *withdrawal* from caffeine can act as triggers for migraines. This means that consuming too much caffeine or suddenly stopping your usual caffeine intake could potentially lead to a migraine.\n\nHowever, caffeine is also recognized as an \"analgesic adjuvant,\" meaning it can enhance the pain-relieving effects of other medications. It is often included in over-the-counter pain relievers for headaches and migraines.\n\nTo manage caffeine's impact on migraines, it's generally recommended to keep your caffeine intake consistent and moderate. Tracking your caffeine consumption and its timing in a headache diary can help you identify any patterns and discuss them with a healthcare professional.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "doc_001",
+        "research/1576 - Peroutka et al. - 2004 - Efficacy of Diclofenac Sodium Softgel 100 mg With or Without Caffeine 100 mg in Migraine Without Aur.pdf"
+      ]
+    },
+    {
+      "case_id": "caffeine-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "So should I quit coffee entirely?",
+      "answer": "Given that both excessive caffeine intake and caffeine withdrawal can trigger migraines, it's not necessarily about quitting coffee entirely, but rather about managing your intake carefully.\n\nHere's what the information suggests:\n*   **Consistency is key:** Try to maintain a consistent and moderate level of caffeine consumption. Sudden changes, either increasing or decreasing significantly, can be problematic.\n*   **Track your intake:** Using a headache diary to log your caffeine intake (amount and timing) and any subsequent migraines can help you identify if there's a personal pattern.\n*   **Caffeine as an adjuvant:** In some cases, caffeine is used in combination with other pain relievers to help alleviate migraine pain.\n\nInstead of an all-or-nothing approach, consider discussing your caffeine habits with your doctor or a neurologist. They can provide personalized advice based on your specific migraine patterns and overall health, helping you determine the best approach for you.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "chronic-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "What is chronic migraine?",
+      "answer": "Chronic migraine is a type of migraine characterized by experiencing migraine or migraine-like headaches 15 days or more per month over a period of 3 months. It often develops gradually from episodic migraine, which is defined as having migraine attacks 1-15 days a month. Chronic migraine is considered a complication of episodic migraine, and as the frequency of attacks increases, so does the patient's suffering and impact on their functional abilities.\n\nSeveral factors can increase the risk of developing chronic migraine, including being female, having frequent migraine attacks initially, ineffective acute treatment, overuse of acute pain medication, depression, stress, obesity, snoring, and lower educational status.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/155 - \"I am now on 'speaking terms' with my migraine monster\" - patient experiences in acceptance-based cognitive behavioral therapy delivered via the internet for migraine- a randomized controlled pilot study using a mixed-method approach.pdf",
+        "research/205 - Changes in patient functioning and disability- results from a phase 3, double-blind, randomized, placebo-controlled clinical trial evaluating galcanezumab for chronic migraine prevention (REGAIN).pdf",
+        "research/355 - Efficacy and safety of topiramate for the treatment of chronic migraine- a randomized, double-blind, placebo-controlled trial.pdf"
+      ]
+    },
+    {
+      "case_id": "chronic-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "How is it treated differently?",
+      "answer": "The information I have doesn't explicitly detail how the treatment for chronic migraine differs from episodic migraine. However, given that chronic migraine involves a higher frequency of migraine days and can lead to increased suffering and functional impairment, it often requires a more comprehensive and sustained treatment approach.\n\nGenerally, treatment for chronic migraine may involve:\n\n*   **Preventive medications:** These are taken regularly to reduce the frequency and severity of migraine attacks. Some medications specifically approved for chronic migraine include Botox injections and certain oral medications like topiramate.\n*   **Acute treatments:** These are used to stop a migraine attack once it has started.\n*   **Lifestyle modifications:** Identifying and avoiding triggers, managing stress, regular sleep, and a healthy diet can play a significant role.\n*   **Addressing comorbidities:** Conditions often associated with chronic migraine, such as depression, anxiety, and medication overuse headache, also need to be managed.\n\nIt's important to consult with a healthcare professional, such as a neurologist or a headache specialist, who can accurately diagnose your condition and develop a personalized treatment plan that is appropriate for your specific needs.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/205 - Changes in patient functioning and disability- results from a phase 3, double-blind, randomized, placebo-controlled clinical trial evaluating galcanezumab for chronic migraine prevention (REGAIN).pdf",
+        "research/296 - Patient-Reported Outcomes from a 1-Year, Real-World, Head-to-Head Comparison of OnabotulinumtoxinA and Topiramate for Headache Prevention in Adults With Chronic Migraine.pdf",
+        "research/945 - Short-term effects of greater occipital nerve blocks in chronic migraine- A double-blind, randomised, placebo-controlled clinical trial.pdf"
+      ]
+    },
+    {
+      "case_id": "trigger-food-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "Which foods commonly trigger migraines?",
+      "answer": "While individual triggers can vary, several foods and dietary factors are commonly reported to trigger migraines. These include:\n\n*   **Chocolate**\n*   **Cheese** (especially aged cheeses)\n*   **Citrus fruits**\n*   **Alcohol** (red wine in particular)\n*   **Coffee** (excess intake or withdrawal)\n*   **MSG**\n*   **Aspartame**\n*   **Processed meats**\n*   **Skipped meals** (leading to hypoglycemia)\n\nIt's important to note that these triggers are often identified retrospectively by patients or through elimination diets. Keeping a food and headache diary can be a helpful way to identify your specific triggers. If you're experiencing migraines, consulting with a healthcare professional like a neurologist or dietitian can provide personalized guidance and support.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/821 - Nutrition intervention for migraine- a randomized crossover trial.pdf",
+        "doc_001"
+      ]
+    },
+    {
+      "case_id": "trigger-food-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "What about aged cheese specifically?",
+      "answer": "Aged cheese is frequently cited as a migraine trigger. The primary reason for this is believed to be its tyramine content. Tyramine is a naturally occurring compound found in many foods, and its levels can increase in foods as they age or ferment.\n\nFor some individuals, consuming foods high in tyramine, like aged cheeses, can activate pathways in the brain that lead to a migraine attack.\n\nIf you suspect aged cheese is a trigger for your migraines, keeping a detailed food and headache diary can help you confirm this connection. Consulting with a healthcare professional, such as a neurologist or a registered dietitian, can also provide you with personalized advice and strategies for managing your migraine triggers.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [],
+      "search_requested": false,
+      "sources": []
+    },
+    {
+      "case_id": "pregnancy-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "Are migraine medications safe during pregnancy?",
+      "answer": "I don't have specific information in my knowledge base about the safety of individual migraine medications during pregnancy.\n\nIt's really important to discuss any medications, including those for migraines, with your doctor or a healthcare professional if you are pregnant or planning to become pregnant. They can provide personalized advice based on your specific health situation and the potential risks and benefits of different treatments.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1125 - Lasmiditan for acute treatment of migraine in patients with cardiovascular risk factors- post-hoc analysis of pooled results from 2 randomized, double-blind, placebo-controlled, phase 3 trials.pdf",
+        "research/903 - Safety findings from Phase 3 lasmiditan studies for acute treatment of migraine- Results from SAMURAI and SPARTAN.pdf",
+        "research/859 - Comparative study of magnesium, sodium valproate, and concurrent magnesium-sodium valproate therapy in the prevention of migraine headaches- a randomized controlled double-blind trial.pdf"
+      ]
+    },
+    {
+      "case_id": "pregnancy-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "Which ones should be avoided?",
+      "answer": "Based on the information available, the FDA has strengthened warnings that non-aspirin nonsteroidal anti-inflammatory drugs (NSAIDs) can cause heart attacks or strokes. While this is a general warning, it's important to be aware of it.\n\nFor all migraine medications, if you are pregnant or planning to become pregnant, it is crucial to speak with your doctor or healthcare provider. They can assess your individual situation and provide guidance on which medications are safe to use and which should be avoided during pregnancy.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1125 - Lasmiditan for acute treatment of migraine in patients with cardiovascular risk factors- post-hoc analysis of pooled results from 2 randomized, double-blind, placebo-controlled, phase 3 trials.pdf",
+        "research/903 - Safety findings from Phase 3 lasmiditan studies for acute treatment of migraine- Results from SAMURAI and SPARTAN.pdf",
+        "research/1486 - Min et al. - 2021 - Atogepant Is Not Associated With Clinically Meaningful Alanine Aminotransferase Elevations in Health.pdf"
+      ]
+    },
+    {
+      "case_id": "prevention-med-followup",
+      "category": "multi_turn",
+      "turn_index": 1,
+      "question": "What medications are used to prevent migraines?",
+      "answer": "Several types of medications are commonly used for migraine prevention. These include:\n\n*   **\u03b2-blockers**\n*   **Anticonvulsants**, such as valproic acid, divalproex sodium, and gabapentin\n*   **Calcium channel blockers**, such as verapamil\n*   **Tricyclic antidepressants**, such as amitriptyline\n\nTopiramate, an anticonvulsant, has also been shown to significantly reduce the frequency of migraine days in individuals with chronic migraine and is considered a safe and well-tolerated preventive therapy.\n\nIt's important to note that while these agents are frequently used, the efficacy of some of them for the preventive treatment of chronic migraine has not always been evaluated in large, multicenter, controlled clinical trials.\n\nAlways consult with a healthcare professional to determine the most appropriate treatment plan for your specific needs.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/355 - Efficacy and safety of topiramate for the treatment of chronic migraine- a randomized, double-blind, placebo-controlled trial.pdf",
+        "research/991 - Amitriptyline and aerobic exercise or amitriptyline alone in the treatment of chronic migraine- a randomized comparative study.pdf",
+        "research/177 - Effect of preventive (beta blocker) treatment, behavioural migraine management, or their combination on outcomes of optimised acute treatment in frequent migraine- randomised controlled trial.pdf"
+      ]
+    },
+    {
+      "case_id": "prevention-med-followup",
+      "category": "multi_turn",
+      "turn_index": 2,
+      "question": "How long before they start working?",
+      "answer": "The time it takes for migraine preventive medications to start working can vary. Some oral preventive therapies may involve a slow titration schedule, meaning the dose is gradually increased over time, and these can take a while to show their full benefit.\n\nHowever, newer treatments, such as certain CGRP inhibitors (e.g., galcanezumab, erenumab) and onabotulinumtoxinA (Botox), have been noted for their \"early onset of effect.\"\n\nMany patients on oral standard-of-care migraine preventive therapy discontinue use within 6 months, often due to inadequate efficacy or tolerability, which suggests that a noticeable effect might not be immediate for all medications or individuals.\n\nIt's best to discuss with your healthcare provider what to expect from your specific medication, as they can provide a more accurate timeline based on your individual treatment plan.",
+      "concrete_crisis_resource": false,
+      "any_crisis_resource": false,
+      "tools_called": [
+        "search_supabase"
+      ],
+      "search_requested": true,
+      "sources": [
+        "research/1095 - Preventive effects of galcanezumab in adult patients with episodic or chronic migraine are persistent- data from the phase 3, randomized, double-blind, placebo-controlled EVOLVE-1, EVOLVE-2, and REGAIN studies.pdf",
+        "research/662 - Early Improvements With Atogepant for the Preventive Treatment of Migraine- Results From 3 Randomized Phase 3 Trials.pdf",
+        "research/444 - Early onset of effect following galcanezumab treatment in patients with previous preventive medication failures.pdf"
+      ]
+    }
+  ]
+}

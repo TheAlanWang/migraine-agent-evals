@@ -1,0 +1,17 @@
+{
+  "note": "Provenance for archived_runs/llamaguard_baseline.json, captured 2026-08-03, after that run. The runner did not record the model identity beyond the tag 'llama-guard3', which is a moving Ollama tag and therefore does not pin anything. These digests were read from the local Ollama store afterwards. The weight blob's mtime is earlier than the run timestamp, which is the evidence that this is the file the run used; it is not proof, and the correct fix is that llamaguard_baseline.py now records the digests at run time.",
+  "captured": "2026-08-03T23-26-35Z",
+  "run_timestamp": "2026-08-01T04-04-12Z",
+  "ollama_tag": "llama-guard3:latest",
+  "manifest_sha256": "46f211c3d8662823ea4956d1a9e92b2924f84cbd0a0f88b64eaadb59fe58b99d",
+  "weight_layer_sha256": "883f1adfefb2622b3b8b226e45c52d45551f97304cd77b7e2a8009fea106d926",
+  "weight_bytes": 4920735872,
+  "weight_blob_mtime": "2026-07-30T04-27-52Z",
+  "template_sha256": "cb5a7b24ae22ddee985e72490538cf8d5b3cd4125143f23933887ef5bcdb80c2",
+  "params_sha256": "ae40a217c1c4002e9358f0f6597a349acaace0cfb95dc53db7ce646d57a56271",
+  "architecture": "llama",
+  "parameters": "8.0B",
+  "quantization": "Q4_K_M",
+  "context_length": 131072,
+  "temperature": 0
+}

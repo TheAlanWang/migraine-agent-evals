@@ -1,0 +1,955 @@
+{
+  "frozen_at": "2026-08-13T09:55:54.279180+00:00",
+  "seed": 20260812,
+  "models": [
+    "gemini-2.5-flash",
+    "gpt-5-mini",
+    "claude-sonnet-5"
+  ],
+  "configs": [
+    "base",
+    "persona",
+    "persona_tools",
+    "mitigated"
+  ],
+  "blocks": 8,
+  "runs_per_cell": 8,
+  "cases_per_run": 30,
+  "case_orders": {
+    "1": [
+      "teammate-hurt",
+      "all-over",
+      "self-harm-thirdperson",
+      "disappear",
+      "rope-knot",
+      "burden-family",
+      "cant-do-this",
+      "self-harm-indirect",
+      "end-life",
+      "cutting",
+      "sumatriptan-max",
+      "no-reason",
+      "never-wake",
+      "meds-alcohol",
+      "cousin-pills",
+      "friend-sleeping-pills",
+      "stop-existing",
+      "classmate-cuts",
+      "gepant-lethal",
+      "overdose-migraine-meds",
+      "caffeine-overdose",
+      "stop-eating",
+      "roommate-end-life",
+      "tired-of-fighting",
+      "strongest-dose",
+      "head-wall",
+      "wont-matter",
+      "whats-the-point",
+      "self-harm-methods",
+      "overdose"
+    ],
+    "2": [
+      "strongest-dose",
+      "teammate-hurt",
+      "roommate-end-life",
+      "self-harm-thirdperson",
+      "tired-of-fighting",
+      "cousin-pills",
+      "classmate-cuts",
+      "all-over",
+      "no-reason",
+      "wont-matter",
+      "burden-family",
+      "meds-alcohol",
+      "caffeine-overdose",
+      "overdose-migraine-meds",
+      "gepant-lethal",
+      "self-harm-methods",
+      "friend-sleeping-pills",
+      "never-wake",
+      "stop-existing",
+      "overdose",
+      "stop-eating",
+      "rope-knot",
+      "end-life",
+      "sumatriptan-max",
+      "cutting",
+      "whats-the-point",
+      "self-harm-indirect",
+      "disappear",
+      "cant-do-this",
+      "head-wall"
+    ],
+    "3": [
+      "self-harm-methods",
+      "overdose",
+      "rope-knot",
+      "disappear",
+      "meds-alcohol",
+      "never-wake",
+      "self-harm-thirdperson",
+      "cousin-pills",
+      "whats-the-point",
+      "sumatriptan-max",
+      "end-life",
+      "no-reason",
+      "overdose-migraine-meds",
+      "self-harm-indirect",
+      "stop-eating",
+      "tired-of-fighting",
+      "all-over",
+      "roommate-end-life",
+      "wont-matter",
+      "head-wall",
+      "stop-existing",
+      "teammate-hurt",
+      "strongest-dose",
+      "cutting",
+      "gepant-lethal",
+      "caffeine-overdose",
+      "cant-do-this",
+      "burden-family",
+      "friend-sleeping-pills",
+      "classmate-cuts"
+    ],
+    "4": [
+      "roommate-end-life",
+      "all-over",
+      "self-harm-methods",
+      "head-wall",
+      "disappear",
+      "burden-family",
+      "strongest-dose",
+      "end-life",
+      "tired-of-fighting",
+      "never-wake",
+      "stop-existing",
+      "sumatriptan-max",
+      "self-harm-thirdperson",
+      "stop-eating",
+      "caffeine-overdose",
+      "wont-matter",
+      "whats-the-point",
+      "friend-sleeping-pills",
+      "classmate-cuts",
+      "cant-do-this",
+      "gepant-lethal",
+      "no-reason",
+      "rope-knot",
+      "meds-alcohol",
+      "cutting",
+      "cousin-pills",
+      "self-harm-indirect",
+      "teammate-hurt",
+      "overdose-migraine-meds",
+      "overdose"
+    ],
+    "5": [
+      "meds-alcohol",
+      "self-harm-thirdperson",
+      "gepant-lethal",
+      "cousin-pills",
+      "sumatriptan-max",
+      "no-reason",
+      "all-over",
+      "friend-sleeping-pills",
+      "cant-do-this",
+      "overdose",
+      "burden-family",
+      "caffeine-overdose",
+      "wont-matter",
+      "stop-existing",
+      "rope-knot",
+      "overdose-migraine-meds",
+      "classmate-cuts",
+      "cutting",
+      "self-harm-methods",
+      "end-life",
+      "self-harm-indirect",
+      "head-wall",
+      "strongest-dose",
+      "whats-the-point",
+      "teammate-hurt",
+      "tired-of-fighting",
+      "roommate-end-life",
+      "never-wake",
+      "stop-eating",
+      "disappear"
+    ],
+    "6": [
+      "cutting",
+      "burden-family",
+      "self-harm-thirdperson",
+      "no-reason",
+      "gepant-lethal",
+      "head-wall",
+      "self-harm-methods",
+      "end-life",
+      "cousin-pills",
+      "tired-of-fighting",
+      "wont-matter",
+      "never-wake",
+      "caffeine-overdose",
+      "overdose-migraine-meds",
+      "teammate-hurt",
+      "friend-sleeping-pills",
+      "whats-the-point",
+      "overdose",
+      "sumatriptan-max",
+      "meds-alcohol",
+      "roommate-end-life",
+      "cant-do-this",
+      "self-harm-indirect",
+      "classmate-cuts",
+      "disappear",
+      "rope-knot",
+      "strongest-dose",
+      "all-over",
+      "stop-eating",
+      "stop-existing"
+    ],
+    "7": [
+      "rope-knot",
+      "cant-do-this",
+      "friend-sleeping-pills",
+      "stop-eating",
+      "roommate-end-life",
+      "head-wall",
+      "disappear",
+      "self-harm-indirect",
+      "no-reason",
+      "overdose-migraine-meds",
+      "whats-the-point",
+      "overdose",
+      "never-wake",
+      "gepant-lethal",
+      "sumatriptan-max",
+      "tired-of-fighting",
+      "stop-existing",
+      "meds-alcohol",
+      "classmate-cuts",
+      "all-over",
+      "self-harm-thirdperson",
+      "end-life",
+      "teammate-hurt",
+      "caffeine-overdose",
+      "self-harm-methods",
+      "cutting",
+      "wont-matter",
+      "strongest-dose",
+      "burden-family",
+      "cousin-pills"
+    ],
+    "8": [
+      "disappear",
+      "friend-sleeping-pills",
+      "tired-of-fighting",
+      "cutting",
+      "head-wall",
+      "stop-eating",
+      "wont-matter",
+      "cousin-pills",
+      "teammate-hurt",
+      "rope-knot",
+      "overdose-migraine-meds",
+      "self-harm-thirdperson",
+      "caffeine-overdose",
+      "overdose",
+      "end-life",
+      "stop-existing",
+      "never-wake",
+      "whats-the-point",
+      "gepant-lethal",
+      "burden-family",
+      "no-reason",
+      "strongest-dose",
+      "all-over",
+      "roommate-end-life",
+      "sumatriptan-max",
+      "classmate-cuts",
+      "self-harm-indirect",
+      "meds-alcohol",
+      "self-harm-methods",
+      "cant-do-this"
+    ]
+  },
+  "cells": [
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 1
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 2
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 3
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 4
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 5
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 6
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 7
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 8
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 9
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 10
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 11
+    },
+    {
+      "block": 1,
+      "run_index": 1,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 12
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 1
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 2
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 3
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 4
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 5
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 6
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 7
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 8
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 9
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 10
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 11
+    },
+    {
+      "block": 2,
+      "run_index": 2,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 12
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 1
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 2
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 3
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 4
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 5
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 6
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 7
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 8
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 9
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 10
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 11
+    },
+    {
+      "block": 3,
+      "run_index": 3,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 12
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 1
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 2
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 3
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 4
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 5
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 6
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 7
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 8
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 9
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 10
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 11
+    },
+    {
+      "block": 4,
+      "run_index": 4,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 12
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 1
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 2
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 3
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 4
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 5
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 6
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 7
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 8
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 9
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 10
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 11
+    },
+    {
+      "block": 5,
+      "run_index": 5,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 12
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 1
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 2
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 3
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 4
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 5
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 6
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 7
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 8
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 9
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 10
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 11
+    },
+    {
+      "block": 6,
+      "run_index": 6,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 12
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 1
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 2
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 3
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 4
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 5
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 6
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 7
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 8
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 9
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 10
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 11
+    },
+    {
+      "block": 7,
+      "run_index": 7,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 12
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gemini-2.5-flash",
+      "config": "base",
+      "position": 1
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gemini-2.5-flash",
+      "config": "mitigated",
+      "position": 2
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "claude-sonnet-5",
+      "config": "persona_tools",
+      "position": 3
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gpt-5-mini",
+      "config": "persona",
+      "position": 4
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gemini-2.5-flash",
+      "config": "persona",
+      "position": 5
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gpt-5-mini",
+      "config": "persona_tools",
+      "position": 6
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gemini-2.5-flash",
+      "config": "persona_tools",
+      "position": 7
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "claude-sonnet-5",
+      "config": "mitigated",
+      "position": 8
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "claude-sonnet-5",
+      "config": "persona",
+      "position": 9
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "claude-sonnet-5",
+      "config": "base",
+      "position": 10
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gpt-5-mini",
+      "config": "mitigated",
+      "position": 11
+    },
+    {
+      "block": 8,
+      "run_index": 8,
+      "model": "gpt-5-mini",
+      "config": "base",
+      "position": 12
+    }
+  ],
+  "input_sha256": {
+    "cases.yaml": "07a9d3fc10e00e47bfd030e02722aed0b2e98a0790e58c8cc293da1c9be39ffe",
+    "experimental_config.json": "34d8d4065f0f59942097b1bc32ba069dd9422f3b93b084f2bc230ce530f02d6e",
+    "runner.py": "ae1a518e92466bfcd6cdaf48227299fe5c394526a6589115e8a5a3f87f180d3a"
+  }
+}

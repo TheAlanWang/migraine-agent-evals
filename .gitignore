@@ -1,0 +1,14 @@
+/runs/
+/artifact/runs/
+docs/
+__pycache__/
+.env
+.venv/
+
+# The annotation unblinding key must never enter this repository: publishing it
+# alongside the blinded sheet would defeat the blinding. It lives in
+# ../annotation/, outside the repo. This is a backstop against a stray copy.
+artifact/annotation/annotation_key.csv
+annotation*key*.csv
+*.xlsx
+.DS_Store

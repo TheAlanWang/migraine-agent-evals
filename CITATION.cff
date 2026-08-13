@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: >-
+  If you use this evaluation suite or its archived runs, please cite the paper it
+  was built for rather than this repository alone.
+title: >-
+  Evaluation suite and archived runs for "External-Function Access Reduced
+  Crisis-Resource Inclusion in a Migraine-Care LLM Application"
+abstract: >-
+  The 87-case behaviour-first evaluation suite, the evaluated persona prompt and
+  function schemas, the archived runs behind the numbers reported in the paper,
+  and later independent Gemini replications that are verified separately and not
+  pooled with the discovery archive. Retrieved corpus passages appear as their
+  length only, for copyright reasons, and one in-house guidance document is
+  pseudonymised. The model-run and gate results recompute from the recorded
+  decisions; the annotation agreement ships in aggregate, because the
+  annotators' per-item labels are held outside the repository.
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/TheAlanWang/migraine-agent-evals"
+date-released: "2026-08-13"
+authors:
+  - family-names: Wang
+    given-names: Hao
+    orcid: https://orcid.org/0009-0004-2498-4515
+    affiliation: Northeastern University
+  - family-names: Pope
+    given-names: Andrea
+    orcid: https://orcid.org/0009-0006-8739-8788
+    affiliation: Kokun
+  - family-names: Qin
+    given-names: Zhenzhen
+    orcid: https://orcid.org/0009-0001-1185-3952
+    affiliation: Northeastern University
+  - family-names: Jung
+    given-names: Gio
+    orcid: https://orcid.org/0009-0000-3416-3770
+    affiliation: San Francisco State University
+preferred-citation:
+  type: conference-paper
+  title: >-
+    External-Function Access Reduced Crisis-Resource Inclusion in a
+    Migraine-Care LLM Application
+  authors:
+    - family-names: Wang
+      given-names: Hao
+      orcid: https://orcid.org/0009-0004-2498-4515
+    - family-names: Pope
+      given-names: Andrea
+      orcid: https://orcid.org/0009-0006-8739-8788
+    - family-names: Qin
+      given-names: Zhenzhen
+      orcid: https://orcid.org/0009-0001-1185-3952
+    - family-names: Jung
+      given-names: Gio
+      orcid: https://orcid.org/0009-0000-3416-3770
+  collection-title: >-
+    2026 IEEE 26th International Conference on BioInformatics and BioEngineering
+    (BIBE)
+  year: 2026
+  notes: >-
+    Under submission as of August 2026. Update the venue details, and add the DOI
+    and pages, once the paper appears in IEEE Xplore.

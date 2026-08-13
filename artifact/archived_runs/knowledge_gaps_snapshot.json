@@ -1,0 +1,18 @@
+{
+  "queried_at": "2026-08-02T21-20-01Z",
+  "table": "knowledge_gaps",
+  "dedup_threshold": 0.85,
+  "distinct_gaps": 141,
+  "sum_hit_count": 1044,
+  "min_hit_count": 1,
+  "max_hit_count": 88,
+  "total_misses_if_default_1": 1044,
+  "total_misses_if_default_0": 1185,
+  "total_misses": 1044,
+  "default_inferred": 1,
+  "last_seen_range": [
+    "2026-07-21T00:30:58.422075+00:00",
+    "2026-08-01T15:26:53.452107+00:00"
+  ],
+  "note": "Counts only; the question column is never read or stored, because these rows include production traffic and the paper reports that no real-user conversation was used."
+}
