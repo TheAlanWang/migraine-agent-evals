@@ -46,7 +46,7 @@ jobs:
       - name: Paper numbers recompute from the archives
         run: python artifact/reproduce.py
 
-      - name: Balanced replication recomputes from 32 Gemini runs
+      - name: Balanced replication recomputes from 96 runs
         run: python artifact/reproduce.py verify-equalized
 
       - name: Heldout replication recomputes from 26 runs

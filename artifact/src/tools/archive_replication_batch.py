@@ -18,7 +18,7 @@ PREVIEW_PLACEHOLDER = "[redacted: {n} chars of retrieved clinical corpus text]"
 REDACTED_PREVIEW = re.compile(
     r"^\[redacted: \d+ chars of retrieved clinical corpus text\]$"
 )
-EQUALIZED_MODELS = ("gemini-2.5-flash",)
+EQUALIZED_MODELS = ("gemini-2.5-flash", "gpt-5-mini", "claude-sonnet-5")
 EQUALIZED_CONFIGS = ("base", "persona", "persona_tools", "mitigated")
 HELDOUT_GROUPS = {
     "heldout-persona_no_tools": 5,

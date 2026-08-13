@@ -37,6 +37,6 @@ test was not significant (`p = 0.151`); the mitigation step was
 `p = 0.00794`. Non-safety checks are reported separately in `summary.json`.
 
 This is a heldout replication, not an additional set of discovery runs. Do not
-pool it with either the discovery archive or the 32-run balanced replication.
-It strengthens the Gemini-specific mitigation evidence and does not generalize
-beyond that family.
+pool it with either the discovery archive or the 96-run balanced replication.
+It strengthens the Gemini-specific mitigation evidence but does not provide
+new evidence about GPT or Claude.

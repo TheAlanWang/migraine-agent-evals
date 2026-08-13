@@ -31,15 +31,21 @@ stable, while each later batch can be checked against its own frozen design.
 
 ## Replication result
 
-The published balanced replication is a 32-run Gemini 2.5 Flash subset: four
-configurations and eight runs per configuration, with 30 synthetic safety cases
-in every run. For the tool-calling transition, mean crisis-resource inclusion
-out of 30 changed from 28.000 to 24.125. The priority instruction recovered it
-to 29.000. This public subset does not replace the discovery archive.
+The 96-run balanced replication found a model-dependent observed pattern. For the
+tool-calling transition, mean crisis-resource inclusion out of 30 changed from
+28.000 to 24.125 for Gemini 2.5 Flash, from 29.500 to 29.625 for GPT-5 mini,
+and from 29.125 to 28.500 for Claude Sonnet 5. The GPT difference is negligible
+and not statistically detectable; it is not interpreted as an improvement.
+Claude showed a smaller, statistically non-detectable observed decrease, while
+Gemini showed the largest decrease and the clearest recovery after the priority
+instruction. No cross-model interaction test was performed.
 
-A separate heldout Gemini replication changed from 28.4/30 without tools to
-27.6/30 with tools and 30.0/30 after mitigation. See the batch READMEs under
-`artifact/archived_runs/` for exact tests and scope.
+The batch failed its preregistered all-model replacement criterion because GPT
+did not decrease. It is nevertheless reported: retaining discovery data only
+when a replication supports the original generalization would be
+outcome-dependent selection. A separate heldout Gemini replication changed
+from 28.4/30 without tools to 27.6/30 with tools and 30.0/30 after mitigation.
+See the batch READMEs under `artifact/archived_runs/` for exact tests and scope.
 
 ## Repository map
 

@@ -1,8 +1,8 @@
 # Balanced replication: 2026-08-13
 
-This directory publishes the Gemini 2.5 Flash subset of the balanced staged
-comparison: four configurations, eight runs per configuration, and 30 synthetic
-safety cases in every run.
+This directory is the clean, balanced replication of the staged comparison. It
+contains 96 complete runs: three model families, four configurations, and eight
+runs per cell, with 30 synthetic safety cases in every run.
 
 ## Evidence boundary
 
@@ -14,16 +14,17 @@ preregistration, input digests, summary manifest, and verifier:
 python artifact/reproduce.py verify-equalized
 ```
 
-The command validates all 32 published files, their plan hash,
-model/configuration/run identity, planned case order, per-run totals, input
-SHA-256 digests, cell means, run-level Mann–Whitney tests, majority-case
-comparisons, split-even exclusions, and McNemar tests.
+The command validates all 96 files, their plan hash, model/configuration/run
+identity, planned case order, per-run totals, input SHA-256 digests, cell means,
+run-level Mann–Whitney tests, majority-case comparisons, split-even exclusions,
+and McNemar tests.
 
 ## Contents
 
-- `plan.json` and `preregistration.json` are kept verbatim from the original
-  registered design. This archive publishes only the Gemini run files.
-- `runs/` contains model answers and derived labels for the 32 Gemini runs.
+- `plan.json` freezes the 3 × 4 × 8 execution plan and case orders.
+- `preregistration.json` records outcomes, comparisons, retention rules, and the
+  original criterion for replacing the formal archive.
+- `runs/` contains model answers and derived labels for every complete run.
 - `results_manifest.json` contains batch-local summaries and SHA-256 digests.
 
 Retrieved trace previews are replaced by
@@ -35,10 +36,18 @@ backend-coupled runner are excluded.
 ## Result
 
 For the tool-calling transition (`persona` → `persona_tools`), mean
-crisis-resource inclusion out of 30 for Gemini 2.5 Flash was 28.000 → 24.125.
-The priority instruction recovered it to 29.000. Exact and tie-aware
-permutation values are in `results_manifest.json`.
+crisis-resource inclusion out of 30 was:
 
-This public subset does not replace the discovery archive. The preregistration
-is preserved verbatim; the later publication decision is documented here rather
-than rewriting it.
+- Gemini 2.5 Flash: 28.000 → 24.125, the largest observed decrease.
+- GPT-5 mini: 29.500 → 29.625, no measurable decrease.
+- Claude Sonnet 5: 29.125 → 28.500, a small decrease.
+
+The priority instruction raised Gemini to 29.000 and Claude to 29.375; GPT was
+29.500. Exact and tie-aware permutation values are in `results_manifest.json`.
+
+The preregistered replacement criterion was not met because GPT-5 mini did not
+decrease. The batch is nevertheless reported as the primary balanced
+replication: retaining discovery results only when replication was favorable
+would create outcome-dependent selection. The preregistration is preserved
+verbatim; the later publication decision is documented here rather than
+rewriting it.

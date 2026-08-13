@@ -18,7 +18,7 @@ from archive_replication_batch import (  # noqa: E402
 )
 
 
-MODELS = ("gemini-2.5-flash",)
+MODELS = ("gemini-2.5-flash", "gpt-5-mini", "claude-sonnet-5")
 CONFIGS = ("base", "persona", "persona_tools", "mitigated")
 
 
@@ -127,11 +127,11 @@ class ArchiveBatchTests(unittest.TestCase):
 
             result = archive_batch(source, destination, "equalized")
 
-            self.assertEqual(result["run_files"], 32)
-            self.assertEqual(result["trace_previews_redacted"], 32 * 30)
+            self.assertEqual(result["run_files"], 96)
+            self.assertEqual(result["trace_previews_redacted"], 96 * 30)
             self.assertEqual((destination / "plan.json").read_bytes(), plan_bytes)
             self.assertTrue((destination / "preregistration.json").exists())
-            self.assertEqual(len(list((destination / "runs").glob("*.json"))), 32)
+            self.assertEqual(len(list((destination / "runs").glob("*.json"))), 96)
             archived = json.loads(next((destination / "runs").glob("*.json")).read_text())
             self.assertTrue(archived["trace_previews_redacted"])
             self.assertNotIn("private retrieved text", json.dumps(archived))
@@ -167,7 +167,7 @@ class ArchiveBatchTests(unittest.TestCase):
             source = root / "source"
             source.mkdir()
             self._write_equalized_source(source)
-            path = source / "gemini-2.5-flash-persona_tools-run8.json"
+            path = source / "gpt-5-mini-persona_tools-run8.json"
             doc = json.loads(path.read_text())
             doc["records"].pop()
             path.write_text(json.dumps(doc))
@@ -181,7 +181,7 @@ class ArchiveBatchTests(unittest.TestCase):
             source = root / "source"
             source.mkdir()
             self._write_equalized_source(source)
-            path = source / "gemini-2.5-flash-persona_tools-run8.json"
+            path = source / "gpt-5-mini-persona_tools-run8.json"
             doc = json.loads(path.read_text())
             doc["config"] = "persona"
             path.write_text(json.dumps(doc))
@@ -190,10 +190,10 @@ class ArchiveBatchTests(unittest.TestCase):
                 archive_batch(source, root / "archive", "equalized")
 
     def test_expected_run_sets_are_frozen(self):
-        self.assertEqual(len(expected_run_names("equalized")), 32)
+        self.assertEqual(len(expected_run_names("equalized")), 96)
         self.assertEqual(len(expected_run_names("heldout")), 26)
         self.assertIn(
-            "gemini-2.5-flash-persona_tools-run8.json",
+            "gpt-5-mini-persona_tools-run8.json",
             expected_run_names("equalized"),
         )
         self.assertIn(

@@ -7,7 +7,7 @@ pooled.
 | Evidence layer | Content | Verification |
 |---|---|---|
 | Discovery | Dated root files, `ladder_*`, `mechanism/`, `native_sdk/`, gate/baseline files, and the root `results_manifest.json` behind the original paper analysis. | `python artifact/reproduce.py` |
-| Balanced replication | `equalized_ladder_2026-08-13/`: 32 Gemini runs across four configurations. | `python artifact/reproduce.py verify-equalized` |
+| Balanced replication | `equalized_ladder_2026-08-13/`: 96 runs across three models and four configurations. | `python artifact/reproduce.py verify-equalized` |
 | Heldout replication | `heldout_tool_calling_2026-08-12/`: Gemini-only heldout, mitigation, and non-safety checks. | `python artifact/reproduce.py verify-heldout` |
 
 The discovery root manifest is intentionally unchanged. Each replication keeps
@@ -18,6 +18,8 @@ Retrieved corpus text is removed from all public archives. Contexts and trace
 previews carry length-bearing placeholders; recorded synthetic questions, model
 answers, source names, tool events, and derived labels remain.
 
-The published balanced subset is Gemini-only and does not replace the discovery
-archive. The frozen plan and preregistration remain verbatim; publication scope
-is documented in the batch README rather than rewritten into those files.
+The balanced replication did not meet its original all-model replacement
+criterion because GPT-5 mini showed no measurable tool-step decrease. It is
+still reported rather than selected away after the result was known. The
+defensible model-dependent conclusion is: a strong Gemini decrease and
+mitigation, a smaller Claude decrease, and no GPT-5-mini replication.

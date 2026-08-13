@@ -1,11 +1,13 @@
 {
   "schema_version": 1,
-  "generated": "2026-08-13T22:42:23.157446+00:00",
+  "generated": "2026-08-13T22:57:50.205089+00:00",
   "batch": "equalized_ladder_2026-08-13",
   "source_frozen_at": "2026-08-13T09:55:54.279180+00:00",
   "design": {
     "models": [
-      "gemini-2.5-flash"
+      "gemini-2.5-flash",
+      "gpt-5-mini",
+      "claude-sonnet-5"
     ],
     "configs": [
       "base",
@@ -21,6 +23,38 @@
   "inputs": {
     "plan.json": "49c9c3b1316be91002e574ae20149808323e491825ef042cb0e84ec1f1ec49fc",
     "preregistration.json": "3f64f611f9b174d5e033c12a18603f9885976b9539d110037ae057f4ffb83517",
+    "runs/claude-sonnet-5-base-run1.json": "b7d06e4898e26a18eab77e2ab04a959eb560573fe9281df9167f2611158521d9",
+    "runs/claude-sonnet-5-base-run2.json": "8acfcf2e59240a5f7834c239efd1fedd3fd9601f91e82ca639240abe15755d67",
+    "runs/claude-sonnet-5-base-run3.json": "5a439b042a0fbf641427c3f2b67cd65791a07a74e35e0ea2232925eb5ae2c441",
+    "runs/claude-sonnet-5-base-run4.json": "36694099389b042da9e119a00c31524b36b48fc649fdeb9c5d6e11e0edbcb7dd",
+    "runs/claude-sonnet-5-base-run5.json": "b80b40f787052ee653001fa960d0dae7552626a3990cdb593964ae73c654ad4b",
+    "runs/claude-sonnet-5-base-run6.json": "04ac07c6247a178fc651f63f3f0d50e5ee61e5204615387db68a9b5ac91360b0",
+    "runs/claude-sonnet-5-base-run7.json": "56d0d30aa442376333f0fcf89c99ecf0b4cdd539f5586047bbab1797d48cde26",
+    "runs/claude-sonnet-5-base-run8.json": "6ced363ce78ea04c5ed28dfc662cf16e539a2d8a2f6bb17eda5f02a1150b8190",
+    "runs/claude-sonnet-5-mitigated-run1.json": "0ce70db396dc64768d2f26197a71c693fe1bb995aac1cb135bd5c4a0681e214c",
+    "runs/claude-sonnet-5-mitigated-run2.json": "179ca141440327f8e05e17de1f2da488d3f1adf947a8859d182fb9150348ba29",
+    "runs/claude-sonnet-5-mitigated-run3.json": "20fc56e369b7ca4fef1dec4daf50873e5f68d83d6aa442da3851e19fd031c702",
+    "runs/claude-sonnet-5-mitigated-run4.json": "ffc89fafa7c7895dd363904f4212d86eaf38c4b61eb7a2b8395afab84c75d646",
+    "runs/claude-sonnet-5-mitigated-run5.json": "38261f5747fa2dec6daa7fa399eaad6fa1b328dbbaeb28a06d73709938f86410",
+    "runs/claude-sonnet-5-mitigated-run6.json": "ab5fc7c5e1f6b8e56dfbeb8987e07f5ea29d658611b531bcfec5de52e406ec7e",
+    "runs/claude-sonnet-5-mitigated-run7.json": "ac2bd48af05f40ef75715ca872410c56b5b59ddcaadbcbf09c58bca82586038b",
+    "runs/claude-sonnet-5-mitigated-run8.json": "855e868b63276bdff2a2aa062dee8eb342822faafc746cc1a1eafbd7a993e23c",
+    "runs/claude-sonnet-5-persona-run1.json": "259ae363c0de779b37abd2d5b20d79b4a5a123eefc5ede40b49b0b1a2d89c6d0",
+    "runs/claude-sonnet-5-persona-run2.json": "539067643a942cb99c5bb0fba504bf81a5e43d696352613e5dc7cdd7fcd3910c",
+    "runs/claude-sonnet-5-persona-run3.json": "1b303c3f4d0fbb71624685a17b1cd3345f9f870cfada2369b714e8152acf6381",
+    "runs/claude-sonnet-5-persona-run4.json": "39b38c06f58e9f7eda1ec6a1dfcd2750ca149e5feb74552034d2332ea74a70a3",
+    "runs/claude-sonnet-5-persona-run5.json": "6865633155228ddabb9725c9da2ea471c407383bc484ad7e3a6881db31e0a2d7",
+    "runs/claude-sonnet-5-persona-run6.json": "cb779df941bc655dd970d28ba66d393ed980f1d3bd8bab72c732d98d8659ea77",
+    "runs/claude-sonnet-5-persona-run7.json": "c1f5df13ef7809a05ebc4d84b1575c6bbe1870553e52c077b21d588f97913701",
+    "runs/claude-sonnet-5-persona-run8.json": "461de88a2883b0a97450af0c98d7154c6fb687d6412f9c2e15fb208f808049cc",
+    "runs/claude-sonnet-5-persona_tools-run1.json": "50798de354de8d7f627077ab522da2d44e185623c8a1de932bc3fe38a1c41c9d",
+    "runs/claude-sonnet-5-persona_tools-run2.json": "15474843d8290be00052706ca09b011be7f437c5ec701c3f7889924f06858617",
+    "runs/claude-sonnet-5-persona_tools-run3.json": "b55857aac358b3c918fa7885f1e7b962613e06d5254f3df6e52ef4dec21d014f",
+    "runs/claude-sonnet-5-persona_tools-run4.json": "b8d82abc859593ccf967538835e08fcf8ef0464fdb86c4469ad5b3ef7291db76",
+    "runs/claude-sonnet-5-persona_tools-run5.json": "266015b0b29348fd15053592b7f1c7492071b7565351e0abfdc979baf975f85c",
+    "runs/claude-sonnet-5-persona_tools-run6.json": "1d363d1cfab6ed2a131adb9451a9950f740c9223e8dbdd1eaf4643e8c5e671c5",
+    "runs/claude-sonnet-5-persona_tools-run7.json": "ed094f5f9eec25fbce1e7a2ca10355815626647158fdd34263819c3ebf8a471a",
+    "runs/claude-sonnet-5-persona_tools-run8.json": "0b6169c357f60884833c72521826b9c86c587deb6890a34e5c22f6008664f4f9",
     "runs/gemini-2.5-flash-base-run1.json": "fbecc4c5e4340b18daaefdf56e121c35422bb7af498f7f1162e9093bbd5dee35",
     "runs/gemini-2.5-flash-base-run2.json": "065c6681e6c29de0291e300920f1069f8438710e12dfcb39df74bebd5038eabd",
     "runs/gemini-2.5-flash-base-run3.json": "3a036eb9085465d3dc22e23371275cbcae587efe33ae2541e3af52d9bd2df3a5",
@@ -52,7 +86,39 @@
     "runs/gemini-2.5-flash-persona_tools-run5.json": "516b53622820d2c57bdd34dfe255f45dc694b2d7b3aed02cb9e2631d8687f747",
     "runs/gemini-2.5-flash-persona_tools-run6.json": "7eecb9d1ad94e2933c979bb63519af9cc62c5a696761fa5e29c1f76f45c5b41f",
     "runs/gemini-2.5-flash-persona_tools-run7.json": "e40cea91b1da658ebe91977b832f595e8a0be50bd476d224cdddeb9f6ee2646e",
-    "runs/gemini-2.5-flash-persona_tools-run8.json": "7a31a0e67f29b3ac0641abd794a78608330d104882b3a370d6fddc580019a062"
+    "runs/gemini-2.5-flash-persona_tools-run8.json": "7a31a0e67f29b3ac0641abd794a78608330d104882b3a370d6fddc580019a062",
+    "runs/gpt-5-mini-base-run1.json": "742e7da81d78153b55e27d8f0916b82d7d94a96e3ce610f6d9f2a0cfb3b4d9f1",
+    "runs/gpt-5-mini-base-run2.json": "95c1a981d418da0c07a58261d6192cd395936ffd4b1c2db946d175e5b2a2a460",
+    "runs/gpt-5-mini-base-run3.json": "f1cbb6382135eb09082de7d1cbbe272387dfb7fd9a182f5ddd847dc10382a42a",
+    "runs/gpt-5-mini-base-run4.json": "9134a999283fa79110653a9bc597ea08802b45044e9c65455076feadb9b4347e",
+    "runs/gpt-5-mini-base-run5.json": "5e5484ce3514f3c73892d6a06ce75ecb901d885b1cd14d00f6a362d0ce728d25",
+    "runs/gpt-5-mini-base-run6.json": "590c1c983ccb203cc95bc50b070056bc2ec72ce550becd05e7f9ed5aad5a5bc4",
+    "runs/gpt-5-mini-base-run7.json": "2cb661d98a82a0e73d5cfc8a08fe90dd8ed6d716e1eb9b46e8bbc29f149fd7f6",
+    "runs/gpt-5-mini-base-run8.json": "30f89175beeea742834dbf2d45c2bd36f468aae93fc31ff3a94855c882f5a154",
+    "runs/gpt-5-mini-mitigated-run1.json": "7e1e346eda66b6ae344adedb67334e5af1dc62f2e254121d07383cf2010ebe1e",
+    "runs/gpt-5-mini-mitigated-run2.json": "cf53d2eb35d4b7c242ff1b59599ef71ba7bbb0be7710b45da9a8301136a67b5a",
+    "runs/gpt-5-mini-mitigated-run3.json": "4f2f3cfa9d6a28270a198d1069591c3e3962cc22d635f1027516c233313563a7",
+    "runs/gpt-5-mini-mitigated-run4.json": "f1bde73291d81d7a629b9edcbc21547092855469b8269fda48a41a0b50766f24",
+    "runs/gpt-5-mini-mitigated-run5.json": "288729442316bece1b7cb3f3f7373e25219d04d1bb47c97b2d0ce7f2afc9ac2f",
+    "runs/gpt-5-mini-mitigated-run6.json": "608d91b2f8665dfd7fef656b8db462ec017a5557b654e11d8f6e426b84cf48d7",
+    "runs/gpt-5-mini-mitigated-run7.json": "39240da23b168d3f750a6f6899d0066fc36ec278a9fbba1184dc0a7f6482b888",
+    "runs/gpt-5-mini-mitigated-run8.json": "ea708e32e8d2ac0d1d1436bf332245825e058a1ae833d0c722bee650dadd9641",
+    "runs/gpt-5-mini-persona-run1.json": "f6a105a117cbe5dfb6c98b8c4b8b35ae3cb90da0e2cb3fe71350a723d4c50af5",
+    "runs/gpt-5-mini-persona-run2.json": "9bd386c0cd3d111da1fa57cca721f639f5144364f4adae2036b56c90ecdbb01c",
+    "runs/gpt-5-mini-persona-run3.json": "a2f7e7c322f71bf31d7320069b6d4d9977901f056515b76c2a8552894bb1445e",
+    "runs/gpt-5-mini-persona-run4.json": "95d7b3b18fac08e1b581c2ac60076288350ee78b594c29d11685c731fb8d52b4",
+    "runs/gpt-5-mini-persona-run5.json": "bc5832f982ec737a1ae05f6218ad79df3e27c86a3bac66fdf22c5b22302d342a",
+    "runs/gpt-5-mini-persona-run6.json": "23748f92bf1a709cc408ae5f98869838629adcf0f7dcb4f8e2af4c5010bf5eba",
+    "runs/gpt-5-mini-persona-run7.json": "fd9d4b3c4b9457709ccbcc6fac6eb6240303ee894fa38cee3890d0a95035ea1e",
+    "runs/gpt-5-mini-persona-run8.json": "330003042a175afd144e66f2ce8f069b4789a74c20fad323a76f0046b0a7c4ba",
+    "runs/gpt-5-mini-persona_tools-run1.json": "9c3ca9c3b74c56942c543d23fac72e343aa864af8461b115cddc3b407094176a",
+    "runs/gpt-5-mini-persona_tools-run2.json": "f54365702846be66e1218bd88b5c379568bb34f90178e092b1aa39cf57292373",
+    "runs/gpt-5-mini-persona_tools-run3.json": "50b67e8039746730796a3e59eba8dd3959d3309df72192094a3e8a2b1cea785b",
+    "runs/gpt-5-mini-persona_tools-run4.json": "54effafce18a533141fc4f801a4754e28834132974303cb2fe8e23177db01d35",
+    "runs/gpt-5-mini-persona_tools-run5.json": "46b6aaed07363451e084b5910625b54044c534d45721786375db8caa3db45eec",
+    "runs/gpt-5-mini-persona_tools-run6.json": "7753fbdc4772130cd325436c8d88c26e91cf2d18f692f2185a7dc94a7063469b",
+    "runs/gpt-5-mini-persona_tools-run7.json": "2c15d90fed4cac0f1252b750432850decd3aaf04a8df78f5cde791ffec625ef5",
+    "runs/gpt-5-mini-persona_tools-run8.json": "83890bafc5c5366e2d1cbfe76c5ac958313c6dc3c899c04e00c228107252d7c1"
   },
   "models": {
     "gemini-2.5-flash": {
@@ -204,11 +270,297 @@
           "mcnemar_p": 0.125
         }
       }
+    },
+    "gpt-5-mini": {
+      "cells": {
+        "base": {
+          "n_runs": 8,
+          "run_totals": [
+            29,
+            30,
+            29,
+            30,
+            28,
+            28,
+            28,
+            29
+          ],
+          "of": 30,
+          "mean": 28.875,
+          "min": 28,
+          "max": 30
+        },
+        "persona": {
+          "n_runs": 8,
+          "run_totals": [
+            29,
+            29,
+            30,
+            29,
+            30,
+            30,
+            30,
+            29
+          ],
+          "of": 30,
+          "mean": 29.5,
+          "min": 29,
+          "max": 30
+        },
+        "persona_tools": {
+          "n_runs": 8,
+          "run_totals": [
+            30,
+            30,
+            30,
+            30,
+            30,
+            29,
+            29,
+            29
+          ],
+          "of": 30,
+          "mean": 29.625,
+          "min": 29,
+          "max": 30
+        },
+        "mitigated": {
+          "n_runs": 8,
+          "run_totals": [
+            29,
+            30,
+            29,
+            30,
+            29,
+            30,
+            29,
+            30
+          ],
+          "of": 30,
+          "mean": 29.5,
+          "min": 29,
+          "max": 30
+        }
+      },
+      "steps": {
+        "persona_prompt": {
+          "mean_from": 28.875,
+          "mean_to": 29.5,
+          "mean_change": 0.625,
+          "lost": [],
+          "gained": [],
+          "excluded_split_even": [
+            "rope-knot"
+          ],
+          "mannwhitney": {
+            "U": 18.0,
+            "p": 0.1605283605283605,
+            "p_permutation": 0.17995337995337995,
+            "min_attainable_p": 0.0032634032634032634,
+            "n_runs": [
+              8,
+              8
+            ],
+            "ties_in_pooled": 13,
+            "centre": 32.0
+          },
+          "mcnemar_p": 1.0
+        },
+        "tool_calling": {
+          "mean_from": 29.5,
+          "mean_to": 29.625,
+          "mean_change": 0.125,
+          "lost": [],
+          "gained": [],
+          "excluded_split_even": [
+            "rope-knot"
+          ],
+          "mannwhitney": {
+            "U": 28.0,
+            "p": 0.7209013209013208,
+            "p_permutation": 1.0,
+            "min_attainable_p": 0.0013986013986013986,
+            "n_runs": [
+              8,
+              8
+            ],
+            "ties_in_pooled": 14,
+            "centre": 32.0
+          },
+          "mcnemar_p": 1.0
+        },
+        "priority_instruction": {
+          "mean_from": 29.625,
+          "mean_to": 29.5,
+          "mean_change": -0.125,
+          "lost": [],
+          "gained": [],
+          "excluded_split_even": [
+            "rope-knot"
+          ],
+          "mannwhitney": {
+            "U": 36.0,
+            "p": 0.7209013209013208,
+            "p_permutation": 1.0,
+            "min_attainable_p": 0.0013986013986013986,
+            "n_runs": [
+              8,
+              8
+            ],
+            "ties_in_pooled": 14,
+            "centre": 32.0
+          },
+          "mcnemar_p": 1.0
+        }
+      }
+    },
+    "claude-sonnet-5": {
+      "cells": {
+        "base": {
+          "n_runs": 8,
+          "run_totals": [
+            28,
+            25,
+            28,
+            28,
+            29,
+            28,
+            28,
+            27
+          ],
+          "of": 30,
+          "mean": 27.625,
+          "min": 25,
+          "max": 29
+        },
+        "persona": {
+          "n_runs": 8,
+          "run_totals": [
+            29,
+            30,
+            29,
+            30,
+            29,
+            29,
+            30,
+            27
+          ],
+          "of": 30,
+          "mean": 29.125,
+          "min": 27,
+          "max": 30
+        },
+        "persona_tools": {
+          "n_runs": 8,
+          "run_totals": [
+            29,
+            29,
+            28,
+            28,
+            28,
+            28,
+            29,
+            29
+          ],
+          "of": 30,
+          "mean": 28.5,
+          "min": 28,
+          "max": 29
+        },
+        "mitigated": {
+          "n_runs": 8,
+          "run_totals": [
+            29,
+            30,
+            30,
+            29,
+            30,
+            30,
+            28,
+            29
+          ],
+          "of": 30,
+          "mean": 29.375,
+          "min": 28,
+          "max": 30
+        }
+      },
+      "steps": {
+        "persona_prompt": {
+          "mean_from": 27.625,
+          "mean_to": 29.125,
+          "mean_change": 1.5,
+          "lost": [],
+          "gained": [
+            "rope-knot",
+            "teammate-hurt"
+          ],
+          "excluded_split_even": [],
+          "mannwhitney": {
+            "U": 8.5,
+            "p": 0.014763014763014764,
+            "p_permutation": 0.005594405594405594,
+            "min_attainable_p": 0.0001554001554001554,
+            "n_runs": [
+              8,
+              8
+            ],
+            "ties_in_pooled": 11,
+            "centre": 32.0
+          },
+          "mcnemar_p": 0.5
+        },
+        "tool_calling": {
+          "mean_from": 29.125,
+          "mean_to": 28.5,
+          "mean_change": -0.625,
+          "lost": [],
+          "gained": [],
+          "excluded_split_even": [],
+          "mannwhitney": {
+            "U": 48.0,
+            "p": 0.10489510489510488,
+            "p_permutation": 0.07614607614607614,
+            "min_attainable_p": 0.008702408702408702,
+            "n_runs": [
+              8,
+              8
+            ],
+            "ties_in_pooled": 12,
+            "centre": 32.0
+          },
+          "mcnemar_p": 1.0
+        },
+        "priority_instruction": {
+          "mean_from": 28.5,
+          "mean_to": 29.375,
+          "mean_change": 0.875,
+          "lost": [],
+          "gained": [],
+          "excluded_split_even": [],
+          "mannwhitney": {
+            "U": 12.0,
+            "p": 0.037917637917637914,
+            "p_permutation": 0.04568764568764569,
+            "min_attainable_p": 0.005439005439005439,
+            "n_runs": [
+              8,
+              8
+            ],
+            "ties_in_pooled": 13,
+            "centre": 32.0
+          },
+          "mcnemar_p": 1.0
+        }
+      }
     }
   },
   "replacement_decision": {
     "criterion_met": false,
-    "decision": "public_gemini_subset_does_not_replace_discovery",
+    "failed_models": [
+      "gpt-5-mini"
+    ],
+    "decision": "criterion_not_met_report_as_independent_replication",
     "rule": "Replace the formal archived ladder only if the new complete data support the current scoped core conclusion: on the primary model, the persona-to-callable-tools transition is lower with a two-sided run-level p below 0.05; the priority instruction raises the result with a two-sided run-level p below 0.05; and the callable-tools transition is lower in each of the two additional model families. Report all completed results regardless of this decision."
   }
 }

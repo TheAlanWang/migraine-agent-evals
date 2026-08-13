@@ -1,4 +1,4 @@
-"""Freeze the published Gemini 32-run balanced subset into a batch-local manifest."""
+"""Freeze the complete 8× balanced replication into a batch-local manifest."""
 from __future__ import annotations
 
 import argparse
@@ -83,11 +83,12 @@ def _load_runs(batch: Path) -> tuple[dict[tuple[str, str], list[dict]], str]:
 
     plan = json.loads(plan_path.read_text())
     if (
-        plan.get("configs") != list(EQUALIZED_CONFIGS)
+        plan.get("models") != list(EQUALIZED_MODELS)
+        or plan.get("configs") != list(EQUALIZED_CONFIGS)
         or plan.get("runs_per_cell") != 8
         or plan.get("cases_per_run") != 30
     ):
-        raise FreezeError("plan shape does not match the registered 4×8 cell design")
+        raise FreezeError("plan shape does not match the registered 3×4×8 design")
     raw_plan_cells = plan.get("cells") or []
     plan_cells = {
         (cell["model"], cell["config"], cell["run_index"]): cell
@@ -211,7 +212,18 @@ def build_manifest(batch: Path = DEFAULT_BATCH) -> dict:
         models[model] = {"cells": cells, "steps": steps}
 
     primary = models["gemini-2.5-flash"]["steps"]
-    criterion_met = False
+    failed_models = [
+        model
+        for model in ("gpt-5-mini", "claude-sonnet-5")
+        if models[model]["steps"]["tool_calling"]["mean_change"] >= 0
+    ]
+    criterion_met = (
+        primary["tool_calling"]["mean_change"] < 0
+        and primary["tool_calling"]["mannwhitney"]["p"] < 0.05
+        and primary["priority_instruction"]["mean_change"] > 0
+        and primary["priority_instruction"]["mannwhitney"]["p"] < 0.05
+        and not failed_models
+    )
     return {
         "schema_version": 1,
         "generated": datetime.now(timezone.utc).isoformat(),
@@ -229,7 +241,12 @@ def build_manifest(batch: Path = DEFAULT_BATCH) -> dict:
         "models": models,
         "replacement_decision": {
             "criterion_met": criterion_met,
-            "decision": "public_gemini_subset_does_not_replace_discovery",
+            "failed_models": failed_models,
+            "decision": (
+                "replace_formal_archive"
+                if criterion_met
+                else "criterion_not_met_report_as_independent_replication"
+            ),
             "rule": preregistration.get("decision_rule_for_repo_replacement"),
         },
     }

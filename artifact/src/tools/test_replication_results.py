@@ -100,21 +100,20 @@ class EqualizedManifestTests(unittest.TestCase):
         manifest = build_manifest(EQUALIZED)
 
         gemini = manifest["models"]["gemini-2.5-flash"]
-        self.assertEqual(list(manifest["models"]), ["gemini-2.5-flash"])
+        gpt = manifest["models"]["gpt-5-mini"]
+        claude = manifest["models"]["claude-sonnet-5"]
         self.assertEqual(gemini["cells"]["persona"]["mean"], 28.0)
         self.assertEqual(gemini["cells"]["persona_tools"]["mean"], 24.125)
         self.assertEqual(gemini["cells"]["mitigated"]["mean"], 29.0)
-        self.assertEqual(gemini["steps"]["tool_calling"]["mean_change"], -3.875)
+        self.assertEqual(gpt["steps"]["tool_calling"]["mean_change"], 0.125)
+        self.assertEqual(claude["steps"]["tool_calling"]["mean_change"], -0.625)
         self.assertFalse(manifest["replacement_decision"]["criterion_met"])
-        self.assertEqual(
-            manifest["replacement_decision"]["decision"],
-            "public_gemini_subset_does_not_replace_discovery",
-        )
+        self.assertIn("gpt-5-mini", manifest["replacement_decision"]["failed_models"])
 
     def test_verifier_accepts_the_archived_batch(self):
         result = verify_equalized(EQUALIZED, require_manifest=False)
 
-        self.assertGreaterEqual(result["checks"], 15)
+        self.assertGreaterEqual(result["checks"], 20)
         self.assertEqual(result["failures"], [])
 
     def test_rejects_altered_plan_hash(self):
@@ -122,7 +121,7 @@ class EqualizedManifestTests(unittest.TestCase):
             validate_plan_hash(
                 {"plan_sha256": "wrong"},
                 "expected",
-                "gemini-2.5-flash-persona-run1.json",
+                "gpt-5-mini-persona-run1.json",
             )
 
     def test_rejects_stale_input_digest(self):
@@ -154,7 +153,7 @@ class EqualizedManifestTests(unittest.TestCase):
             (root / "preregistration.json").write_text("{}")
             (root / "runs").mkdir()
 
-            with self.assertRaisesRegex(FreezeError, "missing 32 runs"):
+            with self.assertRaisesRegex(FreezeError, "missing 96 runs"):
                 build_manifest(root)
 
 

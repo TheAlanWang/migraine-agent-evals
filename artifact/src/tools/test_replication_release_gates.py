@@ -175,7 +175,7 @@ class PublicSnapshotTests(unittest.TestCase):
         self.assertTrue(excluded_from_snapshot(Path("runs/private.json")))
         self.assertFalse(excluded_from_snapshot(Path(
             "artifact/archived_runs/equalized_ladder_2026-08-13/"
-            "runs/gemini-2.5-flash-persona-run1.json"
+            "runs/gpt-5-mini-persona-run1.json"
         )))
 
     def test_snapshot_redacts_legacy_previews_recursively(self):

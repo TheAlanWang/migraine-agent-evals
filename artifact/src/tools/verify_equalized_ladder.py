@@ -1,4 +1,4 @@
-"""Verify the balanced Gemini replication directly from its 32 archived runs."""
+"""Verify the balanced replication directly from its 96 archived runs."""
 from __future__ import annotations
 
 import argparse
@@ -21,11 +21,31 @@ EXPECTED_MEANS = {
         "persona_tools": 24.125,
         "mitigated": 29.0,
     },
+    "gpt-5-mini": {
+        "base": 28.875,
+        "persona": 29.5,
+        "persona_tools": 29.625,
+        "mitigated": 29.5,
+    },
+    "claude-sonnet-5": {
+        "base": 27.625,
+        "persona": 29.125,
+        "persona_tools": 28.5,
+        "mitigated": 29.375,
+    },
 }
 EXPECTED_STEPS = {
     "gemini-2.5-flash": {
         "tool_calling": (-3.875, 0.0001554001554001554, 0.0001554001554001554),
         "priority_instruction": (4.875, 0.0001554001554001554, 0.0001554001554001554),
+    },
+    "gpt-5-mini": {
+        "tool_calling": (0.125, 0.7209013209013208, 1.0),
+        "priority_instruction": (-0.125, 0.7209013209013208, 1.0),
+    },
+    "claude-sonnet-5": {
+        "tool_calling": (-0.625, 0.10489510489510488, 0.07614607614607614),
+        "priority_instruction": (0.875, 0.037917637917637914, 0.04568764568764569),
     },
 }
 
@@ -79,6 +99,11 @@ def verify(batch: Path = DEFAULT_BATCH, require_manifest: bool = True) -> dict:
         "replacement criterion",
         current["replacement_decision"]["criterion_met"],
         False,
+    )
+    check(
+        "failed replacement model",
+        current["replacement_decision"]["failed_models"],
+        ["gpt-5-mini"],
     )
 
     if require_manifest:

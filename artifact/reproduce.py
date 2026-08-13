@@ -27,7 +27,7 @@ def main() -> int:
             "  suite   run the 87-case suite; uses the toy agent if no options follow\n"
             "  test    test the Level-2 concept matcher\n"
             "  paired  rerun the detailed paired analysis\n"
-            "  verify-equalized  verify the 32-run Gemini balanced replication\n"
+            "  verify-equalized  verify the 96-run balanced replication\n"
             "  verify-heldout    verify the 26-run heldout replication"
         )
         return 0
