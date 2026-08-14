@@ -2,8 +2,8 @@
 
 Evaluation code and recorded outputs for the BIBE 2026 paper:
 
-> **External-Function Access Reduced Crisis-Resource Inclusion in a
-> Migraine-Care LLM Application**
+> **Detecting a Safety-Related Response Regression After Enabling Tool Calling
+> in a Migraine-Care LLM Application**
 
 The study used 87 synthetic cases during internal testing of one migraine-care
 application. It contains no patient conversations, and its findings are not a
@@ -18,8 +18,9 @@ python3 -m venv .venv
 ```
 
 `artifact/reproduce.py` is the repository's single command-line entry point. Its
-default command recomputes the original paper values from the discovery archive.
-The two replications have independent commands and manifests:
+default command recomputes the discovery-archive analyses. The balanced staged
+comparison reported in Table I and the heldout analysis have independent
+commands and manifests:
 
 ```bash
 .venv/bin/python artifact/reproduce.py verify-equalized
@@ -35,10 +36,10 @@ The 96-run balanced replication found a model-dependent observed pattern. For th
 tool-calling transition, mean crisis-resource inclusion out of 30 changed from
 28.000 to 24.125 for Gemini 2.5 Flash, from 29.500 to 29.625 for GPT-5 mini,
 and from 29.125 to 28.500 for Claude Sonnet 5. The GPT difference is negligible
-and not statistically detectable; it is not interpreted as an improvement.
-Claude showed a smaller, statistically non-detectable observed decrease, while
-Gemini showed the largest decrease and the clearest recovery after the priority
-instruction. No cross-model interaction test was performed.
+and is not interpreted as an improvement. Claude showed a smaller observed
+decrease, while Gemini showed the largest decrease and the clearest recovery
+after the priority instruction. Additional-family results are descriptive; no
+cross-model interaction test was performed.
 
 The batch failed its preregistered all-model replacement criterion because GPT
 did not decrease. It is nevertheless reported: retaining discovery data only
