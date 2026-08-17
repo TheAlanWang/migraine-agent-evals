@@ -4,6 +4,10 @@ This directory contains three evidence layers. They have different sampling
 plans and must be verified and interpreted separately; their runs must not be
 pooled.
 
+For a result-centered summary that separates the primary balanced comparison,
+the exploratory mechanism decomposition, the temporal holdout, and secondary
+safety findings, see [`../RESULTS.md`](../RESULTS.md).
+
 | Evidence layer | Content | Verification |
 |---|---|---|
 | Discovery | Dated root files, `ladder_*`, `mechanism/`, `native_sdk/`, gate/baseline files, and the root `results_manifest.json` behind the original paper analysis. | `python artifact/reproduce.py` |

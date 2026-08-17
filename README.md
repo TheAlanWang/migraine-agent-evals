@@ -30,29 +30,39 @@ commands and manifests:
 The evidence layers are intentionally not pooled. The default command remains
 stable, while each later batch can be checked against its own frozen design.
 
-## Replication result
+## Results at a glance
 
-The 96-run balanced replication found a model-dependent observed pattern. For the
-tool-calling transition, mean crisis-resource inclusion out of 30 changed from
-28.000 to 24.125 for Gemini 2.5 Flash, from 29.500 to 29.625 for GPT-5 mini,
-and from 29.125 to 28.500 for Claude Sonnet 5. The GPT difference is negligible
-and is not interpreted as an improvement. Claude showed a smaller observed
-decrease, while Gemini showed the largest decrease and the clearest recovery
-after the priority instruction. Additional-family results are descriptive; no
-cross-model interaction test was performed.
+The results are organized into four layers with different designs and evidential
+strength:
 
-The batch failed its preregistered all-model replacement criterion because GPT
-did not decrease. It is nevertheless reported: retaining discovery data only
-when a replication supports the original generalization would be
-outcome-dependent selection. A separate heldout Gemini replication changed
-from 28.4/30 without tools to 27.6/30 with tools and 30.0/30 after mitigation.
-See the batch READMEs under `artifact/archived_runs/` for exact tests and scope.
+1. **Primary balanced comparison:** 96 runs across three model families and four
+   configurations. At the tool-access transition, mean crisis-resource
+   inclusion out of 30 changed from 28.00 to 24.13 for Gemini 2.5 Flash, from
+   29.50 to 29.63 for GPT-5 mini, and from 29.13 to 28.50 for Claude Sonnet 5.
+   Inferential claims are limited to the primary model.
+2. **Exploratory mechanism decomposition:** three runs per configuration
+   localized the lower result to the transition where tool requests became
+   possible. Eight of nine affected case-runs had no document-search call.
+3. **Temporal holdout and non-safety checks:** the heldout tool-access difference
+   was smaller and nonsignificant (28.4 to 27.6; p = 0.151), while the fixed
+   priority instruction increased the mean to 30.0 (p = 0.008). No non-safety
+   regression was observed in the tested turns.
+4. **Secondary safety findings:** neither evaluated input filter covered all 40
+   safety cases, and trace/manual-review checks found risks not captured by the
+   primary response metric.
+
+The results support a configuration-specific regression on the primary path,
+not a model-general tool-calling effect. See
+[`artifact/RESULTS.md`](artifact/RESULTS.md) for the organized results and
+interpretation, and the batch READMEs under `artifact/archived_runs/` for exact
+tests and archive boundaries.
 
 ## Repository map
 
 | Path | What it contains |
 |---|---|
 | `artifact/reproduce.py` | The single reader-facing command. |
+| `artifact/RESULTS.md` | Organized primary, mechanism, holdout, and secondary results. |
 | `artifact/cases.yaml` | The 87 synthetic evaluation cases. |
 | `artifact/archived_runs/` | Redacted discovery, balanced-replication, and heldout-replication outputs. |
 | `artifact/src/` | Evaluation, analysis, and experiment implementation. |
