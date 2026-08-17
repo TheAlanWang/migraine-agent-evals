@@ -34,8 +34,9 @@ over time, so later files contain more cases.
 | `2026-07-30T03-51-17Z.json` | Level-3 snapshot after the suite expanded to 62 cases. |
 | `2026-07-30T04-20-09Z.json` | Level-3 snapshot on the final 87-case development suite. |
 
-These are chronology and provenance records, not seven repeated runs of one
-unchanged experiment.
+The seven suite snapshots document chronology and provenance; the eighth file is
+the one-case smoke record. They are not repeated runs of one unchanged
+experiment.
 
 ## `ladder/`
 
@@ -118,7 +119,8 @@ From the repository root:
 ```bash
 python artifact/reproduce.py
 python artifact/reproduce.py paired
-python artifact/reproduce.py paired --metric crisis_safe
 ```
 
-The current scripts read and write the organized paths above.
+The full `paired` command reproduces both the primary and legacy sensitivity
+metrics in one output. The current scripts read and write the organized paths
+above.

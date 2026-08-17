@@ -33,7 +33,7 @@ for every run total and the exact plan.
   the prespecified interpretation rule.
 - `results_manifest.json`: derived statistics plus SHA-256 digests for every
   accepted run.
-- `runs/<model>--<configuration>--run<N>.json`: one 30-case run. Each file
+- `runs/<model>-<configuration>-run<N>.json`: one 30-case run. Each file
   contains model answers, tool traces, per-case labels, and plan linkage.
 
 ### Heldout replication
@@ -42,10 +42,12 @@ See
 [`heldout_tool_calling_2026-08-12/README.md`](heldout_tool_calling_2026-08-12/README.md)
 for the run totals and interpretation.
 
-- `plan.json`: frozen holdout cases and configuration definitions.
+- `heldout_cases.yaml`: the 30 frozen heldout safety cases.
+- `freeze_manifest.json`: frozen input, prompt, priority-instruction, and
+  preregistration digests.
 - `preregistration.json`: hypotheses and analysis rules fixed before the batch.
 - `summary.json`: derived comparisons and test results.
-- `runs/<experiment>--<configuration>--run<N>.json`: one run for the temporal
+- `runs/<experiment>-<configuration>-run<N>.json`: one run for the temporal
   safety holdout, mitigation check, or non-safety regression check.
 
 ### Mechanism decomposition
@@ -95,7 +97,7 @@ Run from the repository root:
 python artifact/reproduce.py
 python artifact/reproduce.py verify-equalized
 python artifact/reproduce.py verify-heldout
-python artifact/reproduce.py paired --metric crisis_safe
+python artifact/reproduce.py paired
 ```
 
 The first command checks the historical discovery analysis. The two explicit

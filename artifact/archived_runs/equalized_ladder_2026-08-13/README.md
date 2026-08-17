@@ -6,7 +6,8 @@ runs per cell, with 30 synthetic safety cases in every run.
 
 ## Evidence boundary
 
-This batch is independent of the earlier discovery runs in the parent directory.
+This batch is independent of the earlier discovery records under
+`artifact/archived_runs/past_records/` and `artifact/archived_runs/ablation/`.
 Do not pool its runs with the discovery runs. The batch has its own frozen plan,
 preregistration, input digests, summary manifest, and verifier:
 
