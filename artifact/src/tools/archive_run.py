@@ -3,9 +3,10 @@
 `harness.py` writes to `runs/`, which is deliberately untracked: a Level-3 run
 embeds the retrieved chunks the judge scored, and those are verbatim text from a
 proprietary clinical corpus. This script is the one step between "a run
-happened" and "a run backs a number in the paper": it copies the run into
-`archived_runs/` and replaces each retrieved context with a length-preserving
-placeholder on the way.
+happened" and "a run backs a number in the paper": it copies ordinary runs into
+`archived_runs/past_records/discovery_runs/`, keeps ablation runs under
+`archived_runs/ablation/`, and replaces each retrieved context with a
+length-preserving placeholder on the way.
 
 Run it for any run whose numbers you intend to cite. Three of the paper's
 figures once rested on runs that were never promoted, and one of those runs was
@@ -47,9 +48,10 @@ def _candidates() -> list[Path]:
 
 def _archive_path(src: Path) -> Path:
     # keep the ablation/ subdirectory structure, since the paper's tables refer
-    # to configurations by that layout
+    # to configurations by that layout; all other historical harness runs belong
+    # in the organized discovery-run folder rather than the archive root
     return ARCHIVE / ("ablation" / Path(src.name) if src.parent.name == "ablation"
-                      else Path(src.name))
+                      else Path("past_records") / "discovery_runs" / src.name)
 
 
 def promote(src: Path, force: bool = False) -> bool:

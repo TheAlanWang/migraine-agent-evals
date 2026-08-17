@@ -17,6 +17,7 @@ SCANNER = TOOLS / "scan_for_sensitive.py"
 sys.path.insert(0, str(TOOLS))
 
 import check_release_ready as release_gate  # noqa: E402
+import archive_run  # noqa: E402
 from check_release_ready import check_replication_batches  # noqa: E402
 from make_public_snapshot import (  # noqa: E402
     excluded_from_snapshot,
@@ -144,6 +145,49 @@ class SensitiveScannerTests(unittest.TestCase):
 
 
 class ReleaseGateTests(unittest.TestCase):
+    def test_regular_archive_promotions_use_the_discovery_runs_folder(self):
+        archive = Path("/tmp/archive")
+        with patch.object(archive_run, "ARCHIVE", archive):
+            self.assertEqual(
+                archive_run._archive_path(Path("/tmp/runs/example.json")),
+                archive / "past_records" / "discovery_runs" / "example.json",
+            )
+            self.assertEqual(
+                archive_run._archive_path(Path("/tmp/runs/ablation/example.json")),
+                archive / "ablation" / "example.json",
+            )
+
+    def test_archive_layout_rejects_loose_json_and_missing_history(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            archive = Path(tmp) / "archived_runs"
+            past = archive / "past_records"
+            archive.mkdir()
+            (past / "discovery_runs").mkdir(parents=True)
+            (past / "ladder").mkdir()
+            (archive / "loose.json").write_text("{}")
+
+            check = getattr(release_gate, "check_archive_layout", None)
+            if check is None:
+                self.fail("release gate has no archive-layout check")
+
+            with (
+                patch.object(release_gate, "ARCHIVE", archive),
+                patch.object(release_gate, "PAST_RECORDS", past),
+            ):
+                problems = check()
+
+            self.assertIn("loose archive JSON: loose.json", problems)
+            self.assertIn(
+                "required historical record missing: "
+                "past_records/discovery_runs/2026-07-21T15-30-52Z.json",
+                problems,
+            )
+            self.assertIn(
+                "required historical record missing: "
+                "past_records/ladder/persona_ladder-3run-original.json",
+                problems,
+            )
+
     def test_replication_verifiers_are_release_gates(self):
         self.assertEqual(check_replication_batches(), [])
 

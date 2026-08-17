@@ -210,6 +210,26 @@ def check_replication_batches() -> list[str]:
     return problems
 
 
+def check_archive_layout() -> list[str]:
+    """Keep historical records organized and prevent silent evidence loss."""
+    loose = sorted(path.name for path in ARCHIVE.glob("*.json"))
+    required = (
+        PAST_RECORDS / "discovery_runs" / "2026-07-21T15-30-52Z.json",
+        PAST_RECORDS / "ladder" / "persona_ladder-3run-original.json",
+    )
+    problems = [f"loose archive JSON: {name}" for name in loose]
+    problems.extend(
+        "required historical record missing: "
+        f"{path.relative_to(ARCHIVE).as_posix()}"
+        for path in required
+        if not path.exists()
+    )
+    present = sum(path.exists() for path in required)
+    print(f"  archive layout: {len(loose)} loose JSON file(s), "
+          f"{present}/{len(required)} retained records present")
+    return problems
+
+
 def check_manifest() -> list[str]:
     path = DISCOVERY_MANIFEST
     if not path.exists():
@@ -385,6 +405,7 @@ def main() -> None:
     problems += check_working_tree()
     problems += check_sensitive_scan()
     problems += check_tracked_files()
+    problems += check_archive_layout()
     problems += check_manifest()
     problems += check_paper_numbers()
     problems += check_replication_batches()
