@@ -17,10 +17,10 @@ python3 -m venv .venv
 .venv/bin/python artifact/reproduce.py
 ```
 
-`artifact/reproduce.py` is the repository's single command-line entry point. Its
-default command recomputes the discovery-archive analyses. The balanced staged
-comparison reported in Table I and the heldout analysis have independent
-commands and manifests:
+`artifact/reproduce.py` is the repository's supported reader-facing
+reproduction entry point. Its default command recomputes the discovery-archive
+analyses. The balanced staged comparison reported in Table I and the heldout
+analysis have independent commands and manifests:
 
 ```bash
 .venv/bin/python artifact/reproduce.py verify-equalized
@@ -70,8 +70,9 @@ tests and archive boundaries.
 | `artifact/DATA_CARD.md` | Release boundaries and limitations. |
 
 Readers checking the paper need only `artifact/`.
-The experiment runners require the original application backend and provider
-credentials; reproducing the reported numbers does not.
+The application-coupled ladder, mechanism, and native-SDK runners require the
+original application backend and provider credentials; local gate experiments
+and archived-data reproduction do not.
 
 ## Advanced usage
 

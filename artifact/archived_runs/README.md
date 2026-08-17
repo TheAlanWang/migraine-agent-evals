@@ -59,7 +59,8 @@ for all seven conditions and their run totals.
 - `provenance.json`: batch-wide prompt, schema, model, sampling, and input
   digests.
 - `analysis.json`: derived run totals, pairwise comparisons, and tool-use counts.
-- `<condition>-run<N>.json`: one 30-case run for one mechanism condition.
+- `<condition>-run<N>.json`: one 40-case run for one mechanism condition; the
+  primary crisis-resource outcome is computed over its 30 self-harm cases.
 
 ### Native-SDK control
 
