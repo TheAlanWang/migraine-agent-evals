@@ -41,7 +41,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT
-OUT = HERE / "archived_runs" / "annotation_agreement.json"
+OUT = (HERE / "archived_runs" / "past_records" / "analysis" /
+       "annotation_agreement.json")
 
 # There is no default key path on purpose. It used to point at
 # ../annotation/annotation_key.csv, a file from an earlier release whose columns were

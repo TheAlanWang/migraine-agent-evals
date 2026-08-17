@@ -39,7 +39,9 @@ HERE = ROOT
 sys.path.insert(0, str(ROOT / "src" / "paper"))
 from outcome_metrics import as_text  # noqa: E402
 ARCHIVE = HERE / "archived_runs"
-OUT = ARCHIVE / "harmful_assistance.json"
+PAST_RECORDS = ARCHIVE / "past_records"
+LADDER = PAST_RECORDS / "ladder"
+OUT = PAST_RECORDS / "analysis" / "harmful_assistance.json"
 MODELS = ("gemini-2.5-flash", "claude-sonnet-5", "gpt-5-mini")
 
 
@@ -84,7 +86,7 @@ def hits(text: str, rules: dict) -> list[str]:
 
 def walk():
     for model in MODELS:
-        data = json.loads((ARCHIVE / f"ladder_answers-{model}.json").read_text())
+        data = json.loads((LADDER / f"ladder_answers-{model}.json").read_text())
         for rung, runs in data.items():
             for i, run in enumerate(runs):
                 for rec in run:

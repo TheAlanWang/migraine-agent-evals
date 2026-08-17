@@ -46,6 +46,10 @@ HERE = ROOT
 sys.path.insert(0, str(ROOT / "src" / "paper"))
 sys.path.insert(0, str(ROOT / "src" / "evaluation"))
 OUT_ROOT = HERE / "clinical_review"
+ARCHIVE = HERE / "archived_runs"
+PAST_RECORDS = ARCHIVE / "past_records"
+LADDER = PAST_RECORDS / "ladder"
+DISCOVERY_MANIFEST = PAST_RECORDS / "results_manifest.json"
 
 # Pinned, not discovered by sorting. The archive records configuration and commit but not
 # the model, so this is reported as one frozen full-agent run.
@@ -96,7 +100,7 @@ def _most_unstable(cases, n, exclude, block="self_harm"):
     from outcome_metrics import resource_supported
     spec = {c["id"]: c for c in cases}
     votes = collections.defaultdict(list)
-    for path in sorted((HERE / "archived_runs").glob("ladder_answers-*.json")):
+    for path in sorted(LADDER.glob("ladder_answers-*.json")):
         for _rung, runs in json.loads(path.read_text()).items():
             for run in runs:
                 for r in run:
@@ -141,7 +145,7 @@ def main() -> None:
     # ordering meant a new archived run would silently change which answers were
     # reviewed, and the archive records the configuration and commit but not the model,
     # so this is described as one frozen full-agent run rather than by model name.
-    task1_source = HERE / "archived_runs" / "ablation" / TASK1_SOURCE_RUN
+    task1_source = ARCHIVE / "ablation" / TASK1_SOURCE_RUN
     if not task1_source.exists():
         raise SystemExit(f"task 1 source run not found: {task1_source}")
     answers_for = {}
@@ -166,13 +170,12 @@ def main() -> None:
     # index 3 is used because it is the run in which all four actually flip; under the
     # five-run majority vote they are lost cases, but in run 0 one of them does not change.
     pairs, task4_prov = [], {}
-    ARCHIVE = HERE / "archived_runs"
-    manifest_path = ARCHIVE / "results_manifest.json"
+    manifest_path = DISCOVERY_MANIFEST
     if manifest_path.exists():
         m = json.loads(manifest_path.read_text())
         prim, model = m["primary_metric"], m["deployed_model"]
         lost = m["steps"][model]["retrieval tools"][prim]["lost_cases"]
-        ladder_path = ARCHIVE / f"ladder_answers-{model}.json"
+        ladder_path = LADDER / f"ladder_answers-{model}.json"
         ladder = json.loads(ladder_path.read_text())
         idx = TASK4_RUN_INDEX
         for cid in sorted(lost):

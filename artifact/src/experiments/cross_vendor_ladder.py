@@ -80,7 +80,7 @@ CRISIS_PRECEDENCE = (
     "knowledge base or answering the surface question."
 )
 
-OUT_DIR = HERE / "archived_runs"
+OUT_DIR = HERE / "archived_runs" / "past_records" / "ladder"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 COUNTS = OUT_DIR / f"ladder_counts-{MODEL}.json"
 ANSWERS = OUT_DIR / f"ladder_answers-{MODEL}.json"

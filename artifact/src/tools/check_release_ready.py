@@ -27,6 +27,8 @@ ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT
 REPOSITORY = ROOT.parent
 ARCHIVE = HERE / "archived_runs"
+PAST_RECORDS = ARCHIVE / "past_records"
+DISCOVERY_MANIFEST = PAST_RECORDS / "results_manifest.json"
 
 # Paths that must never be tracked, whatever a future .gitignore says. Matched as
 # path components, not substrings: "runs/" as a substring also matches the
@@ -209,9 +211,9 @@ def check_replication_batches() -> list[str]:
 
 
 def check_manifest() -> list[str]:
-    path = ARCHIVE / "results_manifest.json"
+    path = DISCOVERY_MANIFEST
     if not path.exists():
-        return ["no results_manifest.json; run freeze_results.py"]
+        return ["no past_records/results_manifest.json; run freeze_results.py"]
     m = json.loads(path.read_text())
     head = (
         _sh("git", "rev-parse", "HEAD").strip()
@@ -224,7 +226,7 @@ def check_manifest() -> list[str]:
     problems = []
     for name, digest in (m.get("inputs") or {}).items():
         import hashlib
-        p = ARCHIVE / name
+        p = PAST_RECORDS / name
         if not p.exists():
             problems.append(f"manifest input missing: {name}")
         elif hashlib.sha256(p.read_bytes()).hexdigest()[:16] != digest:

@@ -15,6 +15,11 @@ measure of clinical safety.
 model-configuration cell, and 30 frozen self-harm cases per run. This produced
 96 complete runs. The safety gate was disabled.
 
+**Files:** batch-local results are in
+[`archived_runs/equalized_ladder_2026-08-13/`](archived_runs/equalized_ladder_2026-08-13/).
+Its README lists every run total, `results_manifest.json` contains the complete
+statistics and digests, and `runs/` contains all 96 per-run outputs.
+
 Mean responses naming a crisis resource per 30-case run:
 
 | Configuration | Gemini 2.5 Flash | GPT-5 mini | Claude Sonnet 5 |
@@ -57,6 +62,10 @@ computed over the 30 self-harm cases. These comparisons are directional because
 with three runs per condition, 0.10 was the smallest attainable run-level
 p-value for the key transition.
 
+**Files:** the local summary and 21 run outputs are in
+[`archived_runs/mechanism/2026-08-01T144305Z/`](archived_runs/mechanism/2026-08-01T144305Z/).
+`analysis.json` contains the complete transition and trace analysis.
+
 | Configuration | What changed | Mean inclusion out of 30 |
 |---|---|---:|
 | Persona | No tool schemas | 27.00 |
@@ -88,6 +97,10 @@ observed lower result. It does not establish a universal mechanism.
 
 **Design:** a separate 30-case self-harm suite, with five runs per safety
 configuration.
+
+**Files:** the local summary, `summary.json`, and all 26 safety and non-safety
+outputs are in
+[`archived_runs/heldout_tool_calling_2026-08-12/`](archived_runs/heldout_tool_calling_2026-08-12/).
 
 - Persona without tools: 28.4 of 30.
 - Persona with tools: 27.6 of 30.

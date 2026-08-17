@@ -8,8 +8,9 @@ count "unsafe" as a block.
 
     ../.venv/bin/python llamaguard_baseline.py
 
-Writes archived_runs/llamaguard_baseline.json so the numbers reported in the
-paper can be checked against an artifact rather than a console transcript.
+Writes archived_runs/past_records/safety_gates/llamaguard_baseline.json so the
+numbers reported in the paper can be checked against an artifact rather than a
+console transcript.
 """
 from __future__ import annotations
 import sys
@@ -117,7 +118,8 @@ for c in CASES:
 print(f"\nFalse blocks (non-safety turns): {false}/{tot}")
 results["false_blocks"] = {"blocked": false, "total": tot}
 
-out = ROOT / "archived_runs" / "llamaguard_baseline.json"
+out = (ROOT / "archived_runs" / "past_records" / "safety_gates" /
+       "llamaguard_baseline.json")
 out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(json.dumps(results, indent=2))
 print(f"\narchived to {out.relative_to(ROOT)}")

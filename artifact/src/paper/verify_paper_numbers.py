@@ -28,6 +28,11 @@ HERE = ROOT
 sys.path.insert(0, str(ROOT / "src" / "paper"))
 sys.path.insert(0, str(ROOT / "src" / "analysis"))
 ARCHIVE = ROOT / "archived_runs"
+PAST_RECORDS = ARCHIVE / "past_records"
+DISCOVERY_ANALYSIS = PAST_RECORDS / "analysis"
+DISCOVERY_LADDER = PAST_RECORDS / "ladder"
+SAFETY_GATES = PAST_RECORDS / "safety_gates"
+DISCOVERY_MANIFEST = PAST_RECORDS / "results_manifest.json"
 ABL = ARCHIVE / "ablation"
 
 # The three ablation runs Table I reports.
@@ -259,7 +264,7 @@ def main() -> None:
     check("MiniLM overall", want["overall"], f"{blocked_total}/40")
     check("MiniLM false blocks", want["false_blocks"], f"{false}/{nonsafety}")
 
-    lg_path = ARCHIVE / "llamaguard_baseline.json"
+    lg_path = SAFETY_GATES / "llamaguard_baseline.json"
     if lg_path.exists():
         lg = json.loads(lg_path.read_text())
         want = CLAIMS["Table II / Llama Guard 3"]
@@ -270,10 +275,10 @@ def main() -> None:
         check("Llama Guard false blocks", want["false_blocks"],
               f"{lg['false_blocks']['blocked']}/{lg['false_blocks']['total']}")
     else:
-        failures.append("Table II / Llama Guard: archived_runs/llamaguard_baseline.json "
+        failures.append("Table II / Llama Guard: safety_gates/llamaguard_baseline.json "
                         "missing; run llamaguard_baseline.py")
 
-    sweep_p = ARCHIVE / "deployed_gate_sweep.json"
+    sweep_p = SAFETY_GATES / "deployed_gate_sweep.json"
     if sweep_p.exists():
         rows = {r["threshold"]: r for r in json.loads(sweep_p.read_text())["sweep"]}
         row = rows.get(0.30)
@@ -291,9 +296,9 @@ def main() -> None:
     # three-run values while the archive already held five, and nothing caught the
     # mismatch until a reader would have. freeze_results.py derives those numbers
     # once, so the paper is checked against one dated, digest-stamped source.
-    manifest_p = ARCHIVE / "results_manifest.json"
+    manifest_p = DISCOVERY_MANIFEST
     if not manifest_p.exists():
-        failures.append("Table III: results_manifest.json missing; "
+        failures.append("Table III: past_records/results_manifest.json missing; "
                         "run freeze_results.py")
     else:
         manifest = json.loads(manifest_p.read_text())
@@ -358,7 +363,7 @@ def main() -> None:
         import collections as _c
         _cases = yaml.safe_load((HERE / "cases.yaml").read_text())
         _by_id = {c["id"]: c for c in _cases}
-        _lad = ARCHIVE / "ladder_answers-gemini-2.5-flash.json"
+        _lad = DISCOVERY_LADDER / "ladder_answers-gemini-2.5-flash.json"
         if _lad.exists():
             from outcome_metrics import resource_supported, _is_self_harm
             _d = json.loads(_lad.read_text())
@@ -389,9 +394,10 @@ def main() -> None:
         _xm = CLAIMS["Cross-model / tool step"]
         _drops: dict[str, float] = {}
         for _model in ("gemini-2.5-flash", "gpt-5-mini", "claude-sonnet-5"):
-            _p = ARCHIVE / f"ladder_answers-{_model}.json"
+            _p = DISCOVERY_LADDER / f"ladder_answers-{_model}.json"
             if not _p.exists():
-                failures.append(f"Cross-model: archived_runs/{_p.name} missing, so "
+                failures.append(f"Cross-model: past_records/ladder/{_p.name} "
+                                "missing, so "
                                 "the abstract's drop range rests on nothing")
                 continue
             from outcome_metrics import resource_supported, _is_self_harm
@@ -493,7 +499,7 @@ def main() -> None:
         check(f"{cfg} crisis-safe on non-retrieving turns",
               want[f"{key}_nonretrieving"], f"{safe_non}/{total_non}")
 
-    ann = sorted(ARCHIVE.glob("annotation_agreement-*.json"))
+    ann = sorted(DISCOVERY_ANALYSIS.glob("annotation_agreement-*.json"))
     if ann:
         a = json.loads(ann[-1].read_text())
         want = CLAIMS["Threats / annotation"]
@@ -508,7 +514,7 @@ def main() -> None:
         for who, sc in a["scorer"].items():
             check(f"missed positives [{who}]", want["missed_positives"],
                   round(sc["macro_negatives_judged_otherwise"], 4))
-    ha_p = ARCHIVE / "harmful_assistance.json"
+    ha_p = DISCOVERY_ANALYSIS / "harmful_assistance.json"
     if ha_p.exists():
         ha = json.loads(ha_p.read_text())
         want = CLAIMS["Prose / harmful assistance"]
@@ -544,13 +550,13 @@ def main() -> None:
         else:
             failures.append("Prose / rope-knot by rung: forbid_concepts.yaml missing, so "
                             "the two per-rung counts the paper quotes rest on a hand count")
-    snap_p = ARCHIVE / "knowledge_gaps_snapshot.json"
+    snap_p = DISCOVERY_ANALYSIS / "knowledge_gaps_snapshot.json"
     if snap_p.exists():
         snap = json.loads(snap_p.read_text())
         print("Knowledge-gap table")
         check("distinct gaps", CLAIMS["Prose / distinct gaps"], snap["distinct_gaps"])
     print("Table II sweep")
-    sweep_path = ARCHIVE / "deployed_gate_sweep.json"
+    sweep_path = SAFETY_GATES / "deployed_gate_sweep.json"
     if sweep_path.exists():
         sweep = json.loads(sweep_path.read_text())["sweep"]
         for tier, expected in CLAIMS["Table II / sweep"].items():
@@ -560,7 +566,7 @@ def main() -> None:
             got = [row[row_name]["blocked"] for row in sweep]
             check(f"sweep {row_name}", expected, got)
     else:
-        failures.append("Table II: archived_runs/deployed_gate_sweep.json missing; "
+        failures.append("Table II: safety_gates/deployed_gate_sweep.json missing; "
                         "run archive_deployed_sweep.py")
 
     print()

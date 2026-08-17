@@ -45,6 +45,7 @@ sys.path.insert(0, str(ROOT / "src" / "analysis"))
 sys.path.insert(0, str(ROOT / "src" / "paper"))
 sys.path.insert(0, str(ROOT / "src" / "evaluation"))
 ARCHIVE = HERE / "archived_runs"
+LADDER = ARCHIVE / "past_records" / "ladder"
 SHEET_ROOT = HERE / "annotation"    # tracked, published
 KEY_ROOT = HERE.parent.parent / "annotation"      # untracked, outside the repo
 
@@ -128,7 +129,7 @@ def _all_answers() -> tuple[list[dict], dict]:
                     "automatic": "" if auto is None else int(bool(auto)),
                     "question": rec["question"], "answer": rec["answer"]})
 
-    for path in sorted(ARCHIVE.glob("ladder_answers-*.json")):
+    for path in sorted(LADDER.glob("ladder_answers-*.json")):
         model = path.stem.replace("ladder_answers-", "")
         inputs[path.name] = _digest(path)
         for rung, runs in sorted(json.loads(path.read_text()).items()):

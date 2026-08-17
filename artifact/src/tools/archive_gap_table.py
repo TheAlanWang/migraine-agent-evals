@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT
 ARCHIVE = HERE / "archived_runs"
 BACKEND_ENV = HERE.parent.parent / "kokun-backend" / ".env"
-OUT = ARCHIVE / "knowledge_gaps_snapshot.json"
+OUT = ARCHIVE / "past_records" / "analysis" / "knowledge_gaps_snapshot.json"
 
 
 def _credentials() -> tuple[str, str]:

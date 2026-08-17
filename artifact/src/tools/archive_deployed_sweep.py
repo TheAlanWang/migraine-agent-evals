@@ -5,8 +5,9 @@ actually in production, whose reference-phrase list is not published. The
 released `embedding_gate.py` reproduces the shape of that result with a
 substitute list, so an outside reader can check the finding but not the exact
 numbers. This script closes the gap on our side: it recomputes the sweep from
-the deployed list and writes the result to `archived_runs/`, so the figure's
-numbers rest on an artifact rather than on a transcript.
+the deployed list and writes the result under
+`archived_runs/past_records/safety_gates/`, so the figure's numbers rest on an
+artifact rather than on a transcript.
 
 Needs the Kokun backend checked out (for its reference-phrase list) and the
 encoder extra. Nothing here is published beyond the aggregate counts.
@@ -106,7 +107,8 @@ def main() -> None:
               + "  ".join(f"{per_tier[t]}/10".rjust(16) for t in tiers)
               + f"  {f'{blocked}/40':>8}  {f'{false}/{len(scored_benign)}':>9}")
 
-    path = HERE / "archived_runs" / "deployed_gate_sweep.json"
+    path = (HERE / "archived_runs" / "past_records" / "safety_gates" /
+            "deployed_gate_sweep.json")
     path.write_text(json.dumps(out, indent=2))
     print(f"\narchived to {path.relative_to(HERE)}")
 

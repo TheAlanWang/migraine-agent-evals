@@ -46,7 +46,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT
 sys.path.insert(0, str(ROOT / "src" / "experiments"))
-OUT = HERE / "archived_runs" / "experimental_config.json"
+OUT = (HERE / "archived_runs" / "past_records" / "configuration" /
+       "experimental_config.json")
 
 # Internal identifiers to strip from any text that ships.
 REDACTIONS = [

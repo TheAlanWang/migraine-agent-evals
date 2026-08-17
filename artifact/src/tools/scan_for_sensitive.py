@@ -37,6 +37,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT
 ARCHIVE = HERE / "archived_runs"
+PAST_RECORDS = ARCHIVE / "past_records"
 
 # Fields whose long strings are the point of the artifact. "failures" is here because a
 # failed source assertion prints the expected name and every name actually retrieved, so
@@ -85,7 +86,7 @@ def _prompt_fingerprints() -> list[tuple[str, str]]:
     unambiguous are used.
     """
     out = []
-    cfg = ARCHIVE / "experimental_config.json"
+    cfg = PAST_RECORDS / "configuration" / "experimental_config.json"
     if cfg.exists():
         doc = json.loads(cfg.read_text())
         for heading in doc.get("persona_prompt", {}).get("section_headings", []):

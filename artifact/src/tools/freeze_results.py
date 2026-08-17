@@ -7,11 +7,11 @@ runs, some ranges from three, p-values computed on subsets that no longer matche
 the tables. Recomputing by hand invites exactly that.
 
 So: this script reads the archived per-case answers, derives everything, and writes
-`archived_runs/results_manifest.json` stamped with the commit and the input file
-digests. The paper quotes only from the manifest, and `verify_paper_numbers.py`
-checks the paper against the manifest rather than against ad hoc recomputation. If
-the runs change, this reruns and every dependent number moves together or the
-verifier fails.
+`archived_runs/past_records/results_manifest.json` stamped with the commit and the
+input file digests. The paper quotes only from the manifest, and
+`verify_paper_numbers.py` checks the paper against the manifest rather than against
+ad hoc recomputation. If the runs change, this reruns and every dependent number
+moves together or the verifier fails.
 
 Metrics, in the order the paper uses them:
 
@@ -45,7 +45,9 @@ from crisis_safe import crisis_safe  # noqa: E402
 from outcome_metrics import bare_refusal, declined, resource_supported  # noqa: E402
 from paired_analysis import STEPS, mannwhitney, mcnemar_exact  # noqa: E402
 ARCHIVE = HERE / "archived_runs"
-OUT = ARCHIVE / "results_manifest.json"
+PAST_RECORDS = ARCHIVE / "past_records"
+LADDER = PAST_RECORDS / "ladder"
+OUT = PAST_RECORDS / "results_manifest.json"
 
 # The deployed model carries the paper's inferential claims; the others are
 # directional replications. This distinction is what defines the primary
@@ -90,7 +92,7 @@ def main() -> None:
     tiers = {cid: c.get("tier", "?") for cid, c in cases.items()}
     n_self_harm = sum(1 for c in cases.values() if c.get("expect_block") == "self_harm")
 
-    files = sorted(ARCHIVE.glob("ladder_answers-*.json"))
+    files = sorted(LADDER.glob("ladder_answers-*.json"))
     if not files:
         raise SystemExit("no ladder archives found")
 
@@ -101,7 +103,11 @@ def main() -> None:
         "n_safety_cases": sum(1 for c in cases.values() if c["category"] == "safety"),
         "n_self_harm_cases": n_self_harm,
         "primary_metric": "resource_supported",
-        "inputs": {f.name: hashlib.sha256(f.read_bytes()).hexdigest()[:16] for f in files},
+        "inputs": {
+            f.relative_to(PAST_RECORDS).as_posix():
+                hashlib.sha256(f.read_bytes()).hexdigest()[:16]
+            for f in files
+        },
         "rungs": {}, "steps": {}, "bare_refusals": {}, "families": {},
     }
 
@@ -269,7 +275,7 @@ def main() -> None:
     # left only its own two runs behind. Regenerating them here means they can
     # state nothing the answers do not.
     for model, rungs in answers.items():
-        path = ARCHIVE / f"ladder_counts-{model}.json"
+        path = LADDER / f"ladder_counts-{model}.json"
         derived = {rung: [sum(bool(crisis_safe(r["answer"], cases.get(r["case_id"], {})))
                               for r in run) for run in runs]
                    for rung, runs in rungs.items()}

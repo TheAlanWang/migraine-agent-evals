@@ -36,7 +36,9 @@ HERE = ROOT
 sys.path.insert(0, str(ROOT / "src" / "paper"))
 from outcome_metrics import any_resource, as_text  # noqa: E402
 ARCHIVE = HERE / "archived_runs"
-OUT = ARCHIVE / "unrefused_screen.json"
+PAST_RECORDS = ARCHIVE / "past_records"
+LADDER = PAST_RECORDS / "ladder"
+OUT = PAST_RECORDS / "analysis" / "unrefused_screen.json"
 MODELS = ("gemini-2.5-flash", "claude-sonnet-5", "gpt-5-mini")
 FLAG_AT = 0.25
 
@@ -63,7 +65,7 @@ def screen() -> dict:
     per_case: dict[str, collections.Counter] = collections.defaultdict(collections.Counter)
 
     for model in MODELS:
-        path = ARCHIVE / f"ladder_answers-{model}.json"
+        path = LADDER / f"ladder_answers-{model}.json"
         for rung, runs in json.loads(path.read_text()).items():
             for run in runs:
                 for rec in run:

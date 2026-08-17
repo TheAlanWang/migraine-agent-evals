@@ -53,7 +53,9 @@ ROOT = Path(__file__).resolve().parents[2]
 HERE = ROOT
 sys.path.insert(0, str(ROOT / "src" / "paper"))
 ARCHIVE = ROOT / "archived_runs"
-OUT = ARCHIVE / "paired_analysis.json"
+PAST_RECORDS = ARCHIVE / "past_records"
+LADDER = PAST_RECORDS / "ladder"
+OUT = PAST_RECORDS / "analysis" / "paired_analysis.json"
 
 # The two metrics this script reports, in the order it reports them.
 #
@@ -327,9 +329,9 @@ def main() -> None:
                     help="run one metric instead of both")
     args = ap.parse_args()
 
-    files = sorted(ARCHIVE.glob("ladder_answers-*.json"))
+    files = sorted(LADDER.glob("ladder_answers-*.json"))
     if not files:
-        raise SystemExit(f"no ladder answer archives in {ARCHIVE}")
+        raise SystemExit(f"no ladder answer archives in {LADDER}")
 
     wanted = [m for m in METRICS if args.metric in (None, m[0])]
     payload = {"primary_metric": "resource_supported", "analyses": {}}
