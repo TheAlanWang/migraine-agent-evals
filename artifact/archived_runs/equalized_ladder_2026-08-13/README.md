@@ -17,8 +17,9 @@ python artifact/reproduce.py verify-equalized
 
 The command validates all 96 files, their plan hash, model/configuration/run
 identity, planned case order, per-run totals, input SHA-256 digests, cell means,
-run-level Mann–Whitney tests, majority-case comparisons, split-even exclusions,
-and McNemar tests.
+within-block paired differences with 95% confidence intervals, run-level
+Mann–Whitney tests, majority-case comparisons, split-even exclusions, and
+McNemar tests.
 
 ## Contents
 

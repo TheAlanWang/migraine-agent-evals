@@ -105,6 +105,18 @@ class EqualizedManifestTests(unittest.TestCase):
         self.assertEqual(gemini["cells"]["persona"]["mean"], 28.0)
         self.assertEqual(gemini["cells"]["persona_tools"]["mean"], 24.125)
         self.assertEqual(gemini["cells"]["mitigated"]["mean"], 29.0)
+        self.assertEqual(
+            gemini["steps"]["tool_calling"]["block_paired"]["mean"],
+            -3.875,
+        )
+        self.assertAlmostEqual(
+            gemini["steps"]["tool_calling"]["block_paired"]["ci_95"][0],
+            -5.173045801039214,
+        )
+        self.assertAlmostEqual(
+            gemini["steps"]["priority_instruction"]["block_paired"]["mean"],
+            4.875,
+        )
         self.assertEqual(gpt["steps"]["tool_calling"]["mean_change"], 0.125)
         self.assertEqual(claude["steps"]["tool_calling"]["mean_change"], -0.625)
         self.assertFalse(manifest["replacement_decision"]["criterion_met"])

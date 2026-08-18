@@ -50,6 +50,20 @@ EXPECTED_STEPS = {
 }
 
 
+EXPECTED_BLOCK_PAIRED = {
+    "gemini-2.5-flash": {
+        "tool_calling": {
+            "mean": -3.875,
+            "ci_95": [-5.173045801039214, -2.5769541989607863],
+        },
+        "priority_instruction": {
+            "mean": 4.875,
+            "ci_95": [4.339219318386385, 5.410780681613615],
+        },
+    },
+}
+
+
 def verify(batch: Path = DEFAULT_BATCH, require_manifest: bool = True) -> dict:
     batch = batch.resolve()
     current = build_manifest(batch)
@@ -93,6 +107,21 @@ def verify(batch: Path = DEFAULT_BATCH, require_manifest: bool = True) -> dict:
                 f"{model}/{step_name} permutation p",
                 step["mannwhitney"]["p_permutation"],
                 p_permutation,
+            )
+
+    for model, steps in EXPECTED_BLOCK_PAIRED.items():
+        for step_name, expected in steps.items():
+            paired = current["models"][model]["steps"][step_name]["block_paired"]
+            check(f"{model}/{step_name} block mean", paired["mean"], expected["mean"])
+            check(
+                f"{model}/{step_name} block ci low",
+                paired["ci_95"][0],
+                expected["ci_95"][0],
+            )
+            check(
+                f"{model}/{step_name} block ci high",
+                paired["ci_95"][1],
+                expected["ci_95"][1],
             )
 
     check(

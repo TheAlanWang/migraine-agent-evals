@@ -19,6 +19,7 @@ from archive_replication_batch import (  # noqa: E402
     expected_run_names,
 )
 from replication_statistics import (  # noqa: E402
+    block_paired,
     majority_labels,
     mannwhitney,
     mcnemar_exact,
@@ -180,6 +181,7 @@ def _step(runs_from: list[dict], runs_to: list[dict]) -> dict:
         "lost": lost,
         "gained": gained,
         "excluded_split_even": sorted(unstable),
+        "block_paired": block_paired(totals_from, totals_to),
         "mannwhitney": mannwhitney(totals_from, totals_to),
         "mcnemar_p": mcnemar_exact(len(lost), len(gained)),
     }

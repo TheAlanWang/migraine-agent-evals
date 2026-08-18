@@ -61,6 +61,24 @@ def mannwhitney(a: list[int], b: list[int]) -> dict:
     }
 
 
+def block_paired(totals_from: list[int], totals_to: list[int]) -> dict:
+    """Within-block paired differences when run index aligns across configurations."""
+    if len(totals_from) != len(totals_to):
+        raise ValueError("paired run totals must have equal length")
+    diffs = [b - a for a, b in zip(totals_from, totals_to)]
+    n = len(diffs)
+    mean = sum(diffs) / n
+    if n < 2:
+        return {"n_blocks": n, "diffs": diffs, "mean": mean, "ci_95": [mean, mean]}
+    import statistics
+
+    from scipy import stats
+
+    sem = statistics.stdev(diffs) / n**0.5
+    lo, hi = stats.t.interval(0.95, df=n - 1, loc=mean, scale=sem)
+    return {"n_blocks": n, "diffs": diffs, "mean": mean, "ci_95": [lo, hi]}
+
+
 def majority_labels(
     runs: list[list[dict]], key: str
 ) -> tuple[dict[str, bool], set[str]]:

@@ -29,6 +29,7 @@ sys.path.insert(0, str(ROOT / "src" / "paper"))
 sys.path.insert(0, str(ROOT / "src" / "analysis"))
 ARCHIVE = ROOT / "archived_runs"
 PAST_RECORDS = ARCHIVE / "past_records"
+EQUALIZED = ARCHIVE / "equalized_ladder_2026-08-13"
 DISCOVERY_ANALYSIS = PAST_RECORDS / "analysis"
 DISCOVERY_LADDER = PAST_RECORDS / "ladder"
 SAFETY_GATES = PAST_RECORDS / "safety_gates"
@@ -125,6 +126,11 @@ CLAIMS: dict[str, dict] = {
     "Mechanism / means":           {"persona": 27.0, "dummy_schemas": 27.3,
                                     "real_schemas": 27.3, "real_callable": 24.7,
                                     "agent": 24.0, "agent_help_neutral": 23.7},
+    # Within-block paired differences quoted in Results for the primary model.
+    "Equalized / block paired":    {
+        "tool_calling": {"mean": -3.875, "ci_95": [-5.17, -2.58]},
+        "priority_instruction": {"mean": 4.875, "ci_95": [4.34, 5.41]},
+    },
     "Native control / means":      {"persona": 27.3, "real_schemas": 28.0},
     "Suite composition":           {"total": 87, "on_corpus": 20, "off_corpus": 15,
                                     "safety": 40, "multi_turn": 12, "per_tier": 10,
@@ -316,6 +322,35 @@ def main() -> None:
                 check(f"{vendor} {rung}",
                       expected,
                       entry[metric]["run_totals"] if entry else None)
+
+    print("Equalized block paired")
+    eq_manifest_p = EQUALIZED / "results_manifest.json"
+    if not eq_manifest_p.exists():
+        failures.append(
+            "Equalized: results_manifest.json missing; run freeze_equalized_ladder.py"
+        )
+    else:
+        eq = json.loads(eq_manifest_p.read_text())
+        gemini_steps = eq["models"]["gemini-2.5-flash"]["steps"]
+        want_bp = CLAIMS["Equalized / block paired"]
+        for step_name in ("tool_calling", "priority_instruction"):
+            paired = gemini_steps[step_name]["block_paired"]
+            expected = want_bp[step_name]
+            check(
+                f"block paired {step_name} mean",
+                round(paired["mean"], 2),
+                round(expected["mean"], 2),
+            )
+            check(
+                f"block paired {step_name} ci low",
+                round(paired["ci_95"][0], 2),
+                expected["ci_95"][0],
+            )
+            check(
+                f"block paired {step_name} ci high",
+                round(paired["ci_95"][1], 2),
+                expected["ci_95"][1],
+            )
 
     if manifest_p.exists():
         print("Mechanism decomposition")
