@@ -273,7 +273,7 @@ WITHHELD = [
     ("the safety gate's reference-phrase list",
      "security, not commercial: publishing it is a bypass recipe"),
     ("the clinical review's blinding key",
-     "that review has not happened; publishing it would settle it in advance"),
+     "the four paired disagreements are reported; the A/B configuration key stays withheld"),
 ]
 NOT_CHECKABLE_HERE = [
     "an existing remote's visibility, forks, caches, and historical exposure are "

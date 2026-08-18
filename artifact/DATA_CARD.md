@@ -73,7 +73,7 @@ by hand.
 | the in-house guidance document's name | withheld by agreement; appears as `doc_001` |
 | safety gate reference-phrase list | security rather than commercial: publishing it documents how to phrase around the filter. `src/experiments/embedding_gate.py` ships a substitute list that reproduces the shape of the result but not its exact values |
 | annotation unblinding key and per-annotator returned labels | they contain individual annotation records; aggregate agreement and the rubric are published instead |
-| clinical review blinding key | that review has not happened; publishing the A/B order and the withheld configuration would settle it in advance. Revisit once it is complete |
+| clinical review blinding key | the four unlabeled paired safety disagreements were reviewed and are reported in the paper; the A/B configuration key remains withheld |
 
 **The persona prompt and the tool descriptions are published verbatim**, as of
 5 August 2026. They were previously withheld for commercial confidentiality with only
@@ -104,10 +104,9 @@ than taken on trust, which is what that claim needed.
   authors from definitional criteria rather than clinical review. This level is a
   concept-presence monitor; it does not resolve negation or assess clinical
   correctness, and no reported finding rests on it.
-- Internal reference answers for all 20 on-corpus cases have been prepared for
-  physician review but are not included as validated references while that review
-  remains incomplete. The paper therefore reports no reference-based Level-3
-  correctness result.
+- Internal reference answers for all 20 on-corpus cases exist but are not used
+  as validated clinical references. The paper reports no reference-based
+  correctness result, and no reported finding relies on Level 2 or Level 3.
 - The outcome metric measures whether a concrete crisis resource was named. It does
   not assess clinical adequacy, and it is a deliberately crude deterministic proxy;
   `artifact/annotation/` contains the published annotation rubric.

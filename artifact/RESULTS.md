@@ -33,8 +33,10 @@ On the primary model, Gemini 2.5 Flash:
 
 - the persona prompt increased the mean from 26.63 to 28.00, but the change was
   not statistically significant;
-- enabling tool access decreased the mean from 28.00 to 24.13;
-- the priority instruction increased the mean from 24.13 to 29.00; and
+- enabling tool access decreased the mean from 28.00 to 24.13; within-block
+  paired differences averaged −3.88 per 30-case run (95% CI [−5.17, −2.58]);
+- the priority instruction increased the mean from 24.13 to 29.00; within-block
+  paired differences averaged +4.88 (95% CI [4.34, 5.41]); and
 - the tool-access decrease and prompt-level recovery both remained significant
   after Bonferroni correction across the three staged transitions
   (adjusted p < 0.001 for each).
@@ -106,11 +108,12 @@ outputs are in
 - Persona with tools: 27.6 of 30.
 - Persona with tools and the fixed priority instruction: 30.0 of 30.
 
-The 0.8-response tool-access difference was not significant
-(p = 0.151) and did not independently reproduce the original decrease. The
-unchanged priority instruction increased the mean from 27.6 to 30.0
-(p = 0.008). The holdout therefore supports the mitigation result but does not
-establish that the original tool-access regression generalizes to new cases.
+The 0.8-response tool-access difference (persona-only 28.4 versus tool-enabled
+27.6) was not significant (p = 0.151) and did not independently reproduce the
+original decrease. The unchanged priority instruction increased the mean from
+27.6 to 30.0 (p = 0.008). The holdout therefore supports the mitigation result
+but does not establish that the original tool-access regression generalizes to
+new cases.
 
 ### Non-safety regression checks
 
@@ -121,10 +124,10 @@ instruction, producing 177 turns per configuration.
 - Manual review found no erroneous crisis routing in either configuration.
 - No decrease in source return was observed after adding the instruction.
 
-## 4. Secondary safety and trace findings
+## 4. Secondary safety-gate coverage
 
-These analyses describe other application risks; they do not test the
-tool-access effect.
+This analysis describes the application's input filter; it does not test the
+staged configuration comparison.
 
 ### Safety-gate coverage
 
@@ -136,26 +139,21 @@ tool-access effect.
 Neither evaluated filter covered all four self-harm phrasing groups, so neither
 should be the application's only safety layer.
 
-### Trace and manual-review findings
+### Archive-only trace records
 
-- With the gate off, 3 of 12 multi-turn conversations omitted a new search on a
-  follow-up; with the gate on, 5 of 12 did.
-- Across 62 responses to one violence case, manual review found 17 responses
-  that supplied severity-ranked retaliation tactics.
-
-These findings show why answer-level crisis-resource checks, input gates, and
-tool traces provide complementary rather than interchangeable evidence.
+The discovery archive also contains multi-turn search-omission counts and a
+manual review of one violence case. Those records are not reported in the
+submitted paper and should not be read as part of its claims.
 
 ## Overall interpretation
 
 The strongest supported conclusion is:
 
-> A frozen application-level regression test detected a safety-related response
-> regression in one assembled model-prompt-tool configuration. Exploratory
-> decomposition localized the lower result to the transition where tool
-> requests became possible, and a priority instruction recovered the measured
-> behavior. Additional models and a temporal holdout did not establish a
-> model-general tool-calling effect.
+> A frozen suite and staged configurations localized a safety-related regression
+> in one migraine-care LLM application to the assembled tool-enabled path.
+> Isolated component checks did not predict it. A priority instruction recovered
+> the measured behavior on the original suite. Additional models and a temporal
+> holdout did not establish a model-general effect of tool calling.
 
 ## Recompute the archived results
 

@@ -2,12 +2,12 @@
 
 Evaluation code and recorded outputs for the BIBE 2026 paper:
 
-> **Detecting a Safety-Related Response Regression After Enabling Tool Calling
-> in a Migraine-Care LLM Application**
+> **Localizing a Safety-Related Regression Across Configurations of a
+> Migraine-Care LLM Application**
 
 The study used 87 synthetic cases during internal testing of one migraine-care
 application. It contains no patient conversations, and its findings are not a
-claim that external functions always weaken crisis responses.
+claim that tool calling generally harms self-harm safety.
 
 ## Reproduce the paper results
 
@@ -37,22 +37,23 @@ strength:
 
 1. **Primary balanced comparison:** 96 runs across three model families and four
    configurations. At the tool-access transition, mean crisis-resource
-   inclusion out of 30 changed from 28.00 to 24.13 for Gemini 2.5 Flash, from
-   29.50 to 29.63 for GPT-5 mini, and from 29.13 to 28.50 for Claude Sonnet 5.
-   Inferential claims are limited to the primary model.
+   inclusion out of 30 changed from 28.00 to 24.13 for Gemini 2.5 Flash
+   (paired difference −3.88; 95% CI [−5.17, −2.58]), from 29.50 to 29.63 for
+   GPT-5 mini, and from 29.13 to 28.50 for Claude Sonnet 5. Inferential claims
+   are limited to the primary model.
 2. **Exploratory mechanism decomposition:** three runs per configuration
    localized the lower result to the transition where tool requests became
    possible. Eight of nine affected case-runs had no document-search call.
 3. **Temporal holdout and non-safety checks:** the heldout tool-access difference
-   was smaller and nonsignificant (28.4 to 27.6; p = 0.151), while the fixed
-   priority instruction increased the mean to 30.0 (p = 0.008). No non-safety
-   regression was observed in the tested turns.
-4. **Secondary safety findings:** neither evaluated input filter covered all 40
-   safety cases, and trace/manual-review checks found risks not captured by the
-   primary response metric.
+   was smaller and nonsignificant (persona-only 28.4 versus tool-enabled 27.6;
+   p = 0.151), while the same instruction increased the mean from 27.6 to 30.0
+   (p = 0.008). No non-safety regression was observed in the tested turns.
+4. **Secondary safety-gate coverage:** neither evaluated input filter covered
+   all 40 safety cases. Additional trace and manual-review records remain in
+   the archive; they are not reported in the submitted paper.
 
-The results support a configuration-specific regression on the primary path,
-not a model-general tool-calling effect. See
+The results support localizing a configuration-specific regression on the
+assembled tool-enabled path, not a model-general tool-calling effect. See
 [`artifact/RESULTS.md`](artifact/RESULTS.md) for the organized results and
 interpretation, and the batch READMEs under `artifact/archived_runs/` for exact
 tests and archive boundaries.

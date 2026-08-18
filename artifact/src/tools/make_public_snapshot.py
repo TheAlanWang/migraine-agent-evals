@@ -53,10 +53,9 @@ EXCLUDE_DIRS = {".git", "__pycache__", ".pytest_cache", "unredacted_backup",
 # The per-release provenance.json is meant to ship: it is the reproducibility
 # record for the sheet annotators actually received.
 #
-# task4_key.json is the clinical review's blinding key. The review has not happened
-# yet, and A/B order plus the withheld configuration is the whole reason its answers
-# will mean anything, so publishing the key would settle the review before it starts.
-# Revisit once the review is complete, when the key becomes a record rather than a leak.
+# task4_key.json is the clinical review's blinding key. The four unlabeled paired
+# disagreements are reported in the paper; the A/B order and configuration labels
+# remain withheld so that pairing cannot be reverse-engineered from this tree.
 # RELEASE.md is about this private repository and opens by saying it must not be made
 # public. Copied into the snapshot it tells a reader of the public repo the opposite of
 # the truth. The public tree's own provenance is in DATA_CARD.md and the root commit.
