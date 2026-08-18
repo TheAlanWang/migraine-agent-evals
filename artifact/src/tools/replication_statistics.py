@@ -76,7 +76,15 @@ def block_paired(totals_from: list[int], totals_to: list[int]) -> dict:
 
     sem = statistics.stdev(diffs) / n**0.5
     lo, hi = stats.t.interval(0.95, df=n - 1, loc=mean, scale=sem)
-    return {"n_blocks": n, "diffs": diffs, "mean": mean, "ci_95": [lo, hi]}
+    # SciPy returns numpy scalars, and the last bits differ across platforms.
+    # Store native floats at a fixed precision so the frozen manifest matches
+    # the Linux verifier.
+    return {
+        "n_blocks": n,
+        "diffs": diffs,
+        "mean": mean,
+        "ci_95": [round(float(lo), 10), round(float(hi), 10)],
+    }
 
 
 def majority_labels(

@@ -109,9 +109,13 @@ class EqualizedManifestTests(unittest.TestCase):
             gemini["steps"]["tool_calling"]["block_paired"]["mean"],
             -3.875,
         )
-        self.assertAlmostEqual(
+        self.assertEqual(
             gemini["steps"]["tool_calling"]["block_paired"]["ci_95"][0],
-            -5.173045801039214,
+            -5.173045801,
+        )
+        self.assertIsInstance(
+            gemini["steps"]["tool_calling"]["block_paired"]["ci_95"][0],
+            float,
         )
         self.assertAlmostEqual(
             gemini["steps"]["priority_instruction"]["block_paired"]["mean"],
