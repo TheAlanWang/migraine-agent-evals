@@ -10,7 +10,7 @@ those files.
 
 ## Paper Table 1 → directory
 
-Caption: *Inclusion analyses from the 87-case suite.* Cell means from the
+Caption: *Inclusion analyses.* Cell means from the
 96-run staged batch are paper **Table II**, not Table 1.
 
 | Table 1 analysis | Role | Directory |

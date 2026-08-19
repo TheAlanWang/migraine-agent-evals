@@ -31,7 +31,7 @@ while each later batch can be checked against its own frozen design.
 
 ## Paper Table 1 → files
 
-Caption in the paper: *Inclusion analyses from the 87-case suite.* Each of the
+Caption in the paper: *Inclusion analyses.* Each of the
 first four rows uses 30 self-harm cases; **Second suite** uses a second 30.
 Staged comparison randomized 12 model–configuration cells within eight blocks.
 

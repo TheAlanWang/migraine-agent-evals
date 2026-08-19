@@ -1,7 +1,6 @@
 # Experimental results
 
-This document follows paper **Table 1** (*Inclusion analyses from the 87-case
-suite*). The five analyses have different roles and must not be pooled.
+This document follows paper **Table 1** (*Inclusion analyses*). The five analyses have different roles and must not be pooled.
 
 Each of the first four rows uses the same 30 self-harm cases; **Second suite**
 uses a second 30. Gemini staged, GPT/Claude, and Instruction share one frozen
