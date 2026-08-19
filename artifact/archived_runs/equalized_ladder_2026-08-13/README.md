@@ -1,8 +1,10 @@
-# Balanced replication: 2026-08-13
+# Staged batch (paper Table 1 rows 1, 2, and 4): 2026-08-13
 
-This directory is the clean, balanced replication of the staged comparison. It
-contains 96 complete runs: three model families, four configurations, and eight
-runs per cell, with 30 synthetic safety cases in every run.
+This directory is the frozen 8-run staged comparison. It contains 96 complete
+runs: three model families, four configurations, and eight runs per cell, with
+30 synthetic self-harm cases in every run. One folder holds three Table 1
+analyses: Gemini staged (Primary), GPT/Claude (Descriptive), and Instruction
+(Recovery). Cell means from this batch are paper Table II.
 
 ## Evidence boundary
 

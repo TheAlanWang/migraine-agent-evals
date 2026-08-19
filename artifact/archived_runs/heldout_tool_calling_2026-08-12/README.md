@@ -1,9 +1,11 @@
-# Heldout tool-calling replication: 2026-08-12
+# Second suite (paper Table 1 row 5): 2026-08-12
 
-This directory contains a preregistered Gemini 2.5 Flash replication on 30
-synthetic cases held out from the earlier discovery and balanced batches. Five
-runs were retained for each safety configuration, followed by an
-original-prompt priority check and two three-run non-safety checks.
+Folder name `heldout_tool_calling_2026-08-12` is unchanged. In the paper this
+batch is the **second suite**: a preregistered Gemini 2.5 Flash comparison on
+30 synthetic self-harm cases that were not in the original 30. Five runs were
+retained for each safety configuration, followed by an original-prompt
+priority check and two three-run non-safety checks (non-safety files here are
+**not** a Table 1 row).
 
 ## Reproduce
 

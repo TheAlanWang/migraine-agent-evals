@@ -2,7 +2,7 @@
 
 Evaluation code and recorded outputs for the BIBE 2026 paper:
 
-> **Localizing a Safety-Related Regression Across Configurations of a
+> **Localizing a Safety-Related Regression to the Tool-Access Transition in a
 > Migraine-Care LLM Application**
 
 The study used 87 synthetic cases during internal testing of one migraine-care
@@ -18,54 +18,56 @@ python3 -m venv .venv
 ```
 
 `artifact/reproduce.py` is the repository's supported reader-facing
-reproduction entry point. Its default command recomputes the discovery-archive
-analyses. The balanced staged comparison reported in Table I and the heldout
-analysis have independent commands and manifests:
+reproduction entry point. Commands map to archives as follows:
 
-```bash
-.venv/bin/python artifact/reproduce.py verify-equalized
-.venv/bin/python artifact/reproduce.py verify-heldout
-```
+| Command | What it checks | Paper Table 1 |
+|---|---|---|
+| `python artifact/reproduce.py` (default) | Discovery archive (mechanism, gate, and other historical analyses) | Row 3 is in this archive; default is not the 96-run batch |
+| `python artifact/reproduce.py verify-equalized` | Frozen 8-run staged plan, 96 run files | Rows 1, 2, and 4 |
+| `python artifact/reproduce.py verify-heldout` | Second-suite safety runs **and** non-safety checks in the same batch | Row 5; non-safety is not a Table 1 row |
 
-The evidence layers are intentionally not pooled. The default command remains
-stable, while each later batch can be checked against its own frozen design.
+The batches are intentionally not pooled. The default command remains stable,
+while each later batch can be checked against its own frozen design.
 
-## Results at a glance
+## Paper Table 1 → files
 
-The results are organized into four layers with different designs and evidential
-strength:
+Caption in the paper: *Inclusion analyses from the 87-case suite.* Each of the
+first four rows uses 30 self-harm cases; **Second suite** uses a second 30.
+Staged comparison randomized 12 model–configuration cells within eight blocks.
 
-1. **Primary balanced comparison:** 96 runs across three model families and four
-   configurations. At the tool-access transition, mean crisis-resource
-   inclusion out of 30 changed from 28.00 to 24.13 for Gemini 2.5 Flash
-   (paired difference −3.88; 95% CI [−5.17, −2.58]), from 29.50 to 29.63 for
-   GPT-5 mini, and from 29.13 to 28.50 for Claude Sonnet 5. Inferential claims
-   are limited to the primary model.
-2. **Exploratory mechanism decomposition:** three runs per configuration
-   localized the lower result to the transition where tool requests became
-   possible. Eight of nine affected case-runs had no document-search call.
-3. **Temporal holdout and non-safety checks:** the heldout tool-access difference
-   was smaller and nonsignificant (persona-only 28.4 versus tool-enabled 27.6;
-   p = 0.151), while the same instruction increased the mean from 27.6 to 30.0
-   (p = 0.008). No non-safety regression was observed in the tested turns.
-4. **Secondary safety-gate coverage:** neither evaluated input filter covered
-   all 40 safety cases. Additional trace and manual-review records remain in
-   the archive; they are not reported in the submitted paper.
+Gemini staged, GPT/Claude, and Instruction share
+`artifact/archived_runs/equalized_ladder_2026-08-13/` because they were one
+frozen 8-run plan (3 models × 4 configurations × 8 runs = 96 files).
+Decomposition and Second suite are separate batches. Cell means from that
+96-run batch are paper **Table II**, not Table 1.
 
-The results support localizing a configuration-specific regression on the
-assembled tool-enabled path, not a model-general tool-calling effect. See
-[`artifact/RESULTS.md`](artifact/RESULTS.md) for the organized results and
-interpretation, and the batch READMEs under `artifact/archived_runs/` for exact
-tests and archive boundaries.
+| Analysis | Question | Role | Key number | Path |
+|---|---|---|---|---|
+| Gemini staged | Decrease after tool access? | Primary | Persona 28.00 → tool access 24.13; paired −3.88; 95% CI [−5.17, −2.58] | [`artifact/archived_runs/equalized_ladder_2026-08-13/`](artifact/archived_runs/equalized_ladder_2026-08-13/) |
+| GPT, Claude | Same decrease on other models? | Descriptive | GPT 29.50 → 29.63; Claude 29.13 → 28.50 (unpooled) | same folder |
+| Decomposition | Need a search call or retrieved content? | Exploratory | Schema 27.33; requests on 24.67; full app 24.00. Eight of nine lost case-runs had no document-search call | [`artifact/archived_runs/mechanism/2026-08-01T144305Z/`](artifact/archived_runs/mechanism/2026-08-01T144305Z/) |
+| Instruction | Recover inclusion on original cases? | Recovery | Tool access 24.13 → instruction 29.00 | [`artifact/archived_runs/equalized_ladder_2026-08-13/`](artifact/archived_runs/equalized_ladder_2026-08-13/) |
+| Second suite | Still raise inclusion on new cases? | Second suite | Persona 28.4 vs tools 27.6 (p = 0.151; does not replicate the drop); instruction 27.6 → 30.0 (p = 0.008) | [`artifact/archived_runs/heldout_tool_calling_2026-08-12/`](artifact/archived_runs/heldout_tool_calling_2026-08-12/) (safety runs in this folder; non-safety files in the same folder are **not** Table 1) |
+
+Gate, non-safety, native-SDK, ablation, and discovery (`past_records/`) archives
+are **not** Table 1 rows; they remain secondary / archive-only. See
+[`artifact/RESULTS.md`](artifact/RESULTS.md) for numbers and interpretation, and
+[`artifact/archived_runs/README.md`](artifact/archived_runs/README.md) for the
+full directory index.
+
+The results support localizing a configuration-specific regression on this
+application's tool-access path. The second suite does not replicate the drop;
+the instruction recovers inclusion on both the original cases and the second
+suite.
 
 ## Repository map
 
 | Path | What it contains |
 |---|---|
 | `artifact/reproduce.py` | The single reader-facing command. |
-| `artifact/RESULTS.md` | Organized primary, mechanism, holdout, and secondary results. |
+| `artifact/RESULTS.md` | Table 1 rows 1–5, then archive-only (not Table 1) results. |
 | `artifact/cases.yaml` | The 87 synthetic evaluation cases. |
-| `artifact/archived_runs/` | Redacted discovery, balanced-replication, and heldout-replication outputs. |
+| `artifact/archived_runs/` | Redacted discovery, 96-run staged, mechanism, and second-suite outputs. |
 | `artifact/src/` | Evaluation, analysis, and experiment implementation. |
 | `artifact/requirements/` | Minimal reproduction and optional experiment dependencies. |
 | `artifact/DATA_CARD.md` | Release boundaries and limitations. |
@@ -91,8 +93,10 @@ and archived-data reproduction do not.
 # Run the detailed paired analysis.
 .venv/bin/python artifact/reproduce.py paired
 
-# Verify the two later batches independently.
+# Table 1 rows 1, 2, and 4 (96-run staged batch).
 .venv/bin/python artifact/reproduce.py verify-equalized
+
+# Table 1 row 5 (second suite), plus non-safety checks in that batch.
 .venv/bin/python artifact/reproduce.py verify-heldout
 ```
 

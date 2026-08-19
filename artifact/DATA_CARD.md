@@ -28,15 +28,19 @@ authored threat model. It is sized for behavioral coverage, not statistical powe
 ## Archived runs
 
 Per-case model answers, trace assertions, tool-call records, and derived run
-totals are organized into three non-pooled evidence layers:
+totals are organized into non-pooled batches. Paper Table 1 maps onto them as
+follows (see the repository README and `archived_runs/README.md`):
 
-- the discovery archive used by the original paper analysis;
-- a balanced replication with 96 runs across three model families and four
-  configurations; and
-- a Gemini-only heldout replication with 26 safety, mitigation, and non-safety
-  run files.
+- Gemini staged, GPT/Claude, and Instruction share the 96-run staged batch
+  (`archived_runs/equalized_ladder_2026-08-13/`);
+- Decomposition is in the mechanism archive
+  (`archived_runs/mechanism/2026-08-01T144305Z/`);
+- Second suite safety runs are in
+  `archived_runs/heldout_tool_calling_2026-08-12/` (folder name unchanged;
+  non-safety files in that folder are not a Table 1 row); and
+- gate, native-SDK, ablation, and `past_records/` are not Table 1 rows.
 
-Each layer has a separate verifier. Adding a replication does not alter the
+Each batch has a separate verifier. Adding a later batch does not alter the
 discovery manifest or the default paper-number command.
 
 ## Transformations applied
