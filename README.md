@@ -2,7 +2,7 @@
 
 Evaluation code and recorded outputs for the BIBE 2026 paper:
 
-> **Localizing a Safety-Related Regression to the Tool-Access Transition in a
+> **Evaluating Crisis-Resource Inclusion Under Staged Tool Access in a
 > Migraine-Care LLM Application**
 
 The study used 87 synthetic cases during internal testing of one migraine-care
